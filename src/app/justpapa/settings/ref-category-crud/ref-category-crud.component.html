@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-md-12 stretch-card">
+    <nav aria-label="breadcrumb" style="width:100%">
+      <ol class="breadcrumb breadcrumb-custom">
+        <li class="breadcrumb-item"><a routerLink="justpapa">{{'menu.dashboard' | translate}}</a></li>
+        <li class="breadcrumb-item"><a routerLink="../../../settings">{{'menu.settings' | translate}}</a></li>
+        <li class="breadcrumb-item"><a routerLink="/secure/settings/refcategory">{{'menu.refcategory' | translate}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <span *ngIf="flagType === 'edit'">{{'menu.refcategoryedit' | translate}}</span>
+          <span *ngIf="flagType === 'add'">{{'menu.refcategoryadd' | translate}}</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  
+  <ng-container *ngIf="messageBox?.showMessageContainer === true">
+    <div class="col-lg-12">
+      <div class="custome-alert font-weight-bold text-left alert " [ngClass]="{'alert-success': messageBox?.msgClass === 'success', 'alert-danger': messageBox?.msgClass === 'blocker'}" role="alert" >
+        {{messageBox?.messageContent | translate}}
+      </div>
+    </div>
+  </ng-container>
+  
+    
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class=" text-uppercase"><i class="icon ti-marker-alt"></i> 
+          <span *ngIf="flagType === 'edit'">{{'label.editcategory' | translate}}</span>
+          <span *ngIf="flagType === 'add'">{{'label.addcategory' | translate}}</span>
+        </h4>
+        <form [formGroup]="refForm" class="cmxform mt-4"  novalidate>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="category">{{'label.category' | translate}}</label>
+                <input [ngClass] = "{'input-error-box': (refForm.controls.category.errors && isSubmitClicked)}" id="category" class="form-control" formControlName="category" type="text" aria-invalid="true">
+                <label class="error text-danger" *ngIf="(refForm.controls.category.errors && isSubmitClicked)">{{'error.category.mandatory' | translate}}</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="code">{{'label.categorycode' | translate}}</label>
+                <input [ngClass] = "{'input-error-box': (refForm.controls.code.errors && isSubmitClicked), 'disbaled' : flagType === 'edit'}" id="code" class="form-control " formControlName="code" type="text" aria-invalid="true">
+                <label class="error text-danger" *ngIf="(refForm.controls.code.errors && isSubmitClicked)">{{'error.categorycode.mandatory' | translate}}</label>
+              </div>
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-right">
+                <button type="button" class="btn btn-outline-secondary btn-fw" (click)="clearForm()"><i class="ti-cut font-weight-bold"></i> {{'label.clear' | translate}}</button>
+                <button type="button" class="btn btn-primary" (click)="onSubmitClicked()"><i class="ti-save font-weight-bold"></i> {{'label.save' | translate}}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="loadRunner_modules postion-fixed" *ngIf="showModuleSpinner">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+  </div>
+</div>

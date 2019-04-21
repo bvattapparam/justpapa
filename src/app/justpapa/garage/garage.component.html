@@ -1,0 +1,48 @@
+
+<div class="row">
+    <div class="col-md-12 stretch-card">
+      <nav aria-label="breadcrumb" class="custom-breadcrumb">
+        <ol class="breadcrumb breadcrumb-custom">
+          <li class="breadcrumb-item"><a routerLink ="/secure/dashboard">{{'menu.dashboard' | translate}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            <span>{{'menu.garage' | translate}}</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+<div class="row mt-2">
+  <div class="col-md-6 grid-margin stretch-card" *ngFor="let record of result">
+    <div class="card">
+      <div class="card-body">
+          <div class="row">
+            <div class="col-4">
+                <img src="../../../assets/images/{{record.type}}.png" class="img-lg rounded" alt="profile image">
+            </div>
+            <div class="col-8 text-right mt-3">
+                <h6 class="mb-0 text-uppercase">{{(record.model) || "&mdash;"}}</h6>
+                <p class="text-muted mb-1 text-uppercase">{{(record.type) || "&mdash;"}}</p>
+                <p class="mb-0 text-success font-weight-bold mt-3">
+                    <i class="ti-pencil-alt font-weight-bold text-warning text-link" (click)="editData(record.vehicleId);"></i>
+                    &nbsp;<i class="icon-eye font-weight-bold text-warning text-link" (click)="viewData(record);"></i>
+                    &nbsp;<i class="icon-share font-weight-bold text-warning text-link" (click)="transactions(vehicleId);"></i>
+                </p>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+            <div class="row">
+              <div class="col-12 text-right mt-4">
+                <button type="button" class="btn btn-primary" (click)="createNew();"><i class="ti-pencil font-weight-bold"></i> {{'label.addnew' | translate}}</button>    
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

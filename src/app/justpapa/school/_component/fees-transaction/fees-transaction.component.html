@@ -1,0 +1,97 @@
+<div class="row">
+
+  <div class="col-lg-12 grid-margin stretch-card" *ngIf="!showModuleSpinner">
+    <div class="card">
+      <div class="card-body">
+        <h4 class=" text-uppercase"><i class="icon ti-marker-alt"></i> {{'label.transaction' | translate}}</h4>
+        <div class="table-responsive mt-4" *ngIf='!showModuleSpinner && transactionData.length > 0'>
+          <table class="table">
+            <thead>
+              <tr class="text-uppercase">
+                <th>{{'label.sno' | translate}}</th>
+                <th>{{'label.month' | translate}}</th>
+                <th>{{'label.amount' | translate}}</th>
+                <th>{{'label.purpose' | translate}}</th>
+                <th>{{'label.person' | translate}}</th>
+                <th>{{'label.institution' | translate}}</th>
+                <th>{{'label.status' | translate}}</th>
+                <th>{{'label.action' | translate}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-capialize" *ngFor="let record of transactionData; let sno = index">
+                <td># {{sno + 1}}</td>
+                <td>{{(record.month | asqDate) || "&mdash;"}}</td>
+                <td>{{(record.amount | asqCurrency) || "&mdash;"}}</td>
+                <td>{{(_manipulatedReference.FEESPUR[record.purpose]) || "&mdash;"}}</td>
+                <td>{{(_manipulatedReference.PERSON[record.person]) || "&mdash;"}}</td>
+                <td>{{(_manipulatedReference.EDUINST[record.institution]) || "&mdash;"}}</td>
+                <td>{{(_manipulatedReference.GENSTATUS[record.status]) || "&mdash;"}}</td>
+                <td>
+                  <i class="ti-pencil-alt font-weight-bold text-warning text-link" (click)="editData(record.feesId);"></i>
+                  &nbsp;<i class="icon-eye font-weight-bold text-warning text-link" (click)="viewData(record);"></i>
+                  &nbsp;<i class="icon-trash font-weight-bold text-warning text-link" (click)="editData(record.id);"></i>
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td colspan="8" *ngIf = "errorMessge"> {{ errorMessge | translate }}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="8" style="border:none">
+                  <ngb-pagination [collectionSize]="collectionSize" [pageSize]="pageSize" [(page)]="page" (pageChange) = loadPage($event)></ngb-pagination>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          
+          <div class="text-right">
+            <button type="button" class="btn btn-primary" (click)="createNew();"><i class="ti-pencil font-weight-bold"></i> {{'label.addnew' | translate}}</button>
+          </div>
+        </div>
+        <div class="text-danger" *ngIf="transactionData.length < 1">
+          <h6 class="font-weight-bold">{{'message.nodatafound' | translate}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-12 stretch-card text-right">
+    <div class="mt-4 mb-4 py-2 border-top border-bottom text-right">
+      <ul class="nav profile-navbar">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/secure/settings/refcategorycrud/add">
+            <i class="icon-cursor"></i>
+            {{'label.addcategory' | translate}}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/secure/settings/refcategory">
+            <i class="icon-eye"></i>
+            {{'label.viewcategory' | translate}}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="ti-calendar"></i>
+            {{'label.addreference' | translate}}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="ti-clip"></i>
+            {{'label.viewreference' | translate}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="loadRunner_modules" *ngIf="showModuleSpinner">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+  </div>
+  
+</div>
+

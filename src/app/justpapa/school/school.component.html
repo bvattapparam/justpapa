@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-12 stretch-card">
+        <nav aria-label="breadcrumb" style="width:100%">
+          <ol class="breadcrumb breadcrumb-custom">
+            <li class="breadcrumb-item"><a routerLink ="/secure/dashboard">{{'menu.dashboard' | translate}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><span>{{'menu.school' | translate}}</span></li>
+          </ol>
+        </nav>
+      </div>
+    
+    <div _ngcontent-c9="" class="col-md-3 grid-margin stretch-card" *ngFor = "let net of netAmount">
+        <div _ngcontent-c9="" class="card">
+            <div _ngcontent-c9="" class="card-body">
+              <p _ngcontent-c9="" class="card-title text-md-center text-xl-left panel-bb font-weight-bold">{{_manipulatedReference.FEESPUR[net.purpose]}}</p>
+              <div _ngcontent-c9="" class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+                <h4 _ngcontent-c9="" class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{net.netAmount | asqCurrency}}</h4>
+                <!-- <i _ngcontent-c9="" class="ti-flag-alt-2 icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i> -->
+              </div>  
+            </div>
+          </div>
+    </div>
+</div>
+<app-fees-transaction></app-fees-transaction>

@@ -1,0 +1,78 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav text-uppercase">
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link" routerLink="dashboard">
+        <i class="ti-dashboard menu-icon"></i>
+        <span class="menu-title">{{'menu.dashboard' | translate}}</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link" routerLink="school">
+        <i class="ti-ruler-pencil menu-icon"></i>
+        <span class="menu-title">{{'menu.school' | translate}}</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link" routerLink="piggybank">
+        <i class="ti-wallet menu-icon"></i>
+        <span class="menu-title">{{'menu.piggybank' | translate}}</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link" routerLink="fundbasket">
+        <i class="ti-wallet menu-icon"></i>
+        <span class="menu-title">{{'menu.fundbasket' | translate}}</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link" routerLink="chitfund">
+        <i class="ti-wallet menu-icon"></i>
+        <span class="menu-title">{{'menu.chitfund' | translate}}</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link" routerLink="garage">
+        <i class="ti-car menu-icon"></i>
+        <span class="menu-title">{{'menu.garage' | translate}}</span>
+      </a>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" data-toggle="collapse" href="#settings" aria-expanded="false" aria-controls="settings">
+        <i class="ti-settings menu-icon"></i>
+        <span class="menu-title">{{'menu.settings' | translate}}</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="settings">
+        <ul class="nav flex-column sub-menu text-uppercase">
+          <li class="nav-item" [routerLinkActive]="['active']"> <a class="nav-link" routerLink="settings/refcategory">{{'menu.references' | translate}}</a></li>
+          <li class="nav-item" [routerLinkActive]="['active']"> <a class="nav-link" routerLink="references">{{'menu.profile' | translate}}</a></li>
+          <li class="nav-item" [routerLinkActive]="['active']"> <a class="nav-link" routerLink="references">{{'menu.reminders' | translate}}</a></li>
+          <li class="nav-item" [routerLinkActive]="['active']"> <a class="nav-link" routerLink="references">{{'menu.holidays' | translate}}</a></li>
+          <li class="nav-item" [routerLinkActive]="['active']"> <a class="nav-link" routerLink="references">{{'menu.events' | translate}}</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="ti-money menu-icon"></i>
+        <span class="menu-title">{{'menu.bucket' | translate}}</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item" [routerLinkActive]="['active']"> <a class="nav-link" href="pages/ui-features/accordions.html">{{'menu.lic' | translate}}</a></li>
+          <li class="nav-item" [routerLinkActive]="['active']"> <a class="nav-link" href="pages/ui-features/buttons.html">{{'menu.fees' | translate}}</a></li>
+          <li class="nav-item" [routerLinkActive]="['active']"> <a class="nav-link" href="pages/ui-features/badges.html">{{'menu.partsavings' | translate}}</a></li>
+          <li class="nav-item" [routerLinkActive]="['active']"> <a class="nav-link" href="pages/ui-features/breadcrumbs.html">{{'menu.bulksavings' | translate}}</a></li>
+          <li class="nav-item" [routerLinkActive]="['active']"> <a class="nav-link" href="pages/ui-features/dropdowns.html">{{'menu.chit' | translate}}</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link" routerLink='profile'>
+        <i class="ti-comments-smiley menu-icon"></i>
+        <span class="menu-title">{{'menu.profile' | translate}}</span>
+      </a>
+    </li>
+    </ul>
+  </nav>

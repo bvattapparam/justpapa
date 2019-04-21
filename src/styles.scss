@@ -1,0 +1,302 @@
+/* You can add global styles to this file, and also import other style files */
+.text-link{
+  cursor: pointer;
+}
+.disbaled, .readonly{
+  color: #333333;
+}
+.custome-alert {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.btn-light{
+  color: unset !important;
+}
+.bg-light{
+  background-color: unset !important;
+}
+
+.content-wrapper1 {
+  padding: 1.5rem 1.5rem !important
+}
+
+.custom-breadcrumb{
+  width: 100% !important;
+  text-transform: capitalize !important;
+}
+
+.navbar .navbar-brand-wrapper .navbar-brand img{
+  height: unset !important;
+}
+
+.postion-fixed{
+  position:fixed !important;
+}
+
+
+.select-custom{
+  >select{
+    appearance: none;
+    outline: none;
+    padding-right: 28px !important;
+  }
+  >select::-ms-expand{
+    display: none;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 44px;
+    right: 27px;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    //border-color: #ccc;
+    transform: rotate(45deg);
+    pointer-events: none;
+  }
+}
+.select-custom-nolabel{
+  >select{
+    appearance: none;
+    outline: none;
+    padding-right: 28px !important;
+  }
+  >select::-ms-expand{
+    display: none;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 15px;
+    right: 30px;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    //border-color: #ccc;
+    transform: rotate(45deg);
+    pointer-events: none;
+  }
+}
+
+select{
+  //margin-top: 4px;
+ // border-radius: 0;
+ // background-color: #ccc;
+  text-align: left;
+  padding: 12px 5px 10px 12px;
+  font-weight: normal;
+
+}
+select{
+  cursor: pointer;
+  >option{
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    margin: 10px;
+    
+  }
+}
+select.form-control{
+  //border: 1px solid !important;
+  border-radius: 0 !important;
+  }
+select.form-control-lg :not() {
+height: calc(2.875rem_2px);
+}
+.panel-bb{
+  border-bottom: 1px solid #666;
+}
+/* modal custome classes */
+.custom-class-md {
+    .modal-lg{
+        width: 50%;
+    }
+}
+.modal-content{
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.modal-body-custom{
+    max-width: 100%;
+}
+.modal-header{
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+.modal-title{
+    text-transform: uppercase !important;
+    font-size: 1.3rem;
+}
+.modal-header .close {
+    padding: 0px;
+}
+.modal .modal-dialog .modal-content .modal-header .close span {
+    font-size: 50px;
+    font-weight: 200;
+}
+.modal-dialog{
+  margin-bottom: unset !important;
+}
+.input-error-box{
+  border: 1px solid red !important;
+}
+.input-error-withimage-right{
+    border-right-color: red !important;
+    border-top-color: red !important;
+    border-bottom-color: red !important;
+}
+.input-error-withimage-left{
+    border-left-color: red !important;
+    border-top-color: red !important;
+    border-bottom-color: red !important;
+}
+label.error{
+  font-size: 0.95rem !important;
+}
+.form-group{
+  label{
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  }
+}
+
+
+
+// -------- spinner ---
+.loadRunner{
+  background-color: rgba(255, 255, 255, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100000;
+    display: block;
+  }
+  .loadRunner_modules{
+    background-color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100000;
+    display: block;
+  }
+  .nobackground{
+    background-color: unset !important;
+  }
+  .loadRunner_modules{
+    z-index: 10 !important;
+    .lds-hourglass{
+        left: 50%;
+        top: 50%;
+        // margin-left: 50px;
+        // margin-top: -16px;
+    }
+    .lds-ellipsis {
+      left: 50%;
+      top: 50%;
+    }
+  }
+
+
+  .lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 27px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #666;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 6px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 6px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 26px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 45px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(19px, 0);
+    }
+  }
+  
+  
+.lds-hourglass {
+    display: inline-block;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 50%;
+    top: 50%;
+    margin-left: -40px;
+    margin-top: -16px;
+  }
+  .lds-hourglass:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 6px;
+    box-sizing: border-box;
+    border: 26px solid  rgb(209, 97, 5);
+    border-color: #777777 transparent #333333 transparent;
+    animation: lds-hourglass 1.2s infinite;
+  }
+  @keyframes lds-hourglass {
+    0% {
+      transform: rotate(0);
+      animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+      transform: rotate(900deg);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+      transform: rotate(1800deg);
+    }
+  }
+// ----- spinner close
+  

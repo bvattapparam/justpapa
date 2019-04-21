@@ -1,0 +1,148 @@
+{
+    "fieldConfig": {
+    "month": { "labelKey": "label.month", "field": "month", "valueType": "date", "refValue": "", "space": 1},
+    "amount": { "labelKey": "label.amount", "field": "amount", "valueType": "currency", "refValue": "", "space": 1},
+    "purpose": { "labelKey": "label.purpose", "field": "purpose", "valueType": "ref", "refValue": "FEESPUR", "space": 1},
+    "person": { "labelKey": "label.person", "field": "person", "valueType": "ref", "refValue": "PERSON", "space": 1},
+    "institution": { "labelKey": "label.institution", "field": "institution", "valueType": "ref", "refValue": "EDUINST", "space": 1},
+    "status": { "labelKey": "label.status", "field": "status", "valueType": "ref", "refValue": "GENSTATUS", "space": 1},
+    "comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2},
+    "createdBy": { "labelKey": "label.createdby", "field": "createdBy", "valueType": "audit", "refValue": "", "space": 1},
+    "createdDate": { "labelKey": "label.createddate", "field": "createdDate", "valueType": "audit", "refValue": "", "space": 1},
+    "modifiedBy": { "labelKey": "label.modifiedby", "field": "modifiedBy", "valueType": "audit", "refValue": "", "space": 1},
+    "modifiedDate": { "labelKey": "label.modifieddate", "field": "modifiedDate", "valueType": "audit", "refValue": "", "space": 1},
+
+    "ch_chitGroup": { "labelKey": "label.chitgroup", "field": "chitGroup", "valueType": "string", "refValue": "", "space": 1},
+    "ch_chitValue": { "labelKey": "label.chitvalue", "field": "chitValue", "valueType": "currency", "refValue": "", "space": 1},
+    "ch_startDate": { "labelKey": "label.startdate", "field": "startDate", "valueType": "date", "refValue": "", "space": 1},
+    "ch_maturedDate": { "labelKey": "label.matureddate", "field": "maturedDate", "valueType": "date", "refValue": "", "space": 1},
+    "ch_status": { "labelKey": "label.status", "field": "status", "valueType": "ref", "refValue": "GENSTATUS", "space": 1},
+    "ch_poc": { "labelKey": "label.poc", "field": "poc", "valueType": "string", "refValue": "", "space": 1},
+    "ch_person": { "labelKey": "label.person", "field": "person", "valueType": "ref", "refValue": "PERSON", "space": 1},
+    "ch_createdBy": { "labelKey": "label.createdby", "field": "createdBy", "valueType": "audit", "refValue": "", "space": 1},
+    "ch_createdDate": { "labelKey": "label.createddate", "field": "createdDate", "valueType": "audit", "refValue": "", "space": 1},
+    "ch_modifiedBy": { "labelKey": "label.modifiedby", "field": "modifiedBy", "valueType": "audit", "refValue": "", "space": 1},
+    "ch_modifiedDate": { "labelKey": "label.modifieddate", "field": "modifiedDate", "valueType": "audit", "refValue": "", "space": 1},
+    "ch_comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2},
+
+    "pb_month": { "labelKey": "label.month", "field": "month", "valueType": "date", "refValue": "", "space": 1},
+    "pb_amount": { "labelKey": "label.amount", "field": "amount", "valueType": "currency", "refValue": "", "space": 1},
+    "pb_payMode": { "labelKey": "label.paymode", "field": "payMode", "valueType": "ref", "refValue": "PAYMODE", "space": 1},
+    "pb_createdBy": { "labelKey": "label.createdby", "field": "createdBy", "valueType": "audit", "refValue": "", "space": 1},
+    "pb_createdDate": { "labelKey": "label.createddate", "field": "createdDate", "valueType": "audit", "refValue": "", "space": 1},
+    "pb_modifiedBy": { "labelKey": "label.modifiedby", "field": "modifiedBy", "valueType": "audit", "refValue": "", "space": 1},
+    "pb_modifiedDate": { "labelKey": "label.modifieddate", "field": "modifiedDate", "valueType": "audit", "refValue": "", "space": 1},
+    "pb_comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2},
+
+    "piggy_month": { "labelKey": "label.month", "field": "month", "valueType": "date", "refValue": "", "space": 1},
+    "piggy_amount": { "labelKey": "label.amount", "field": "amount", "valueType": "currency", "refValue": "", "space": 1},
+    "piggy_basket": { "labelKey": "label.basket", "field": "basket", "valueType": "ref", "refValue": "BANK", "space": 1},
+    "piggy_basketOwner": { "labelKey": "label.basketowner", "field": "basketOwner", "valueType": "ref", "refValue": "PERSON", "space": 1},
+    "piggy_fromPerson": { "labelKey": "label.fromperson", "field": "fromPerson", "valueType": "ref", "refValue": "PERSON", "space": 1},
+    "piggy_createdBy": { "labelKey": "label.createdby", "field": "createdBy", "valueType": "audit", "refValue": "", "space": 1},
+    "piggy_createdDate": { "labelKey": "label.createddate", "field": "createdDate", "valueType": "audit", "refValue": "", "space": 1},
+    "piggy_modifiedBy": { "labelKey": "label.modifiedby", "field": "modifiedBy", "valueType": "audit", "refValue": "", "space": 1},
+    "piggy_modifiedDate": { "labelKey": "label.modifieddate", "field": "modifiedDate", "valueType": "audit", "refValue": "", "space": 1},
+    "piggy_comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2},
+
+    "g_model": { "labelKey": "label.model", "field": "model", "valueType": "string", "refValue": "", "space": 1},
+    "g_make": { "labelKey": "label.make", "field": "make", "valueType": "string", "refValue": "", "space": 1},
+    "g_type": { "labelKey": "label.type", "field": "type", "valueType": "string", "refValue": "", "space": 1},
+    "g_cost": { "labelKey": "label.cost", "field": "cost", "valueType": "currency", "refValue": "", "space": 1},
+    "g_bookedDate": { "labelKey": "label.bookeddate", "field": "bookedDate", "valueType": "date", "refValue": "", "space": 1},
+    "g_deliveryDate": { "labelKey": "label.deliverydate", "field": "deliveryDate", "valueType": "date", "refValue": "", "space": 1},
+    "g_regNumber": { "labelKey": "label.regnumber", "field": "regNumber", "valueType": "string", "refValue": "", "space": 1},
+    "g_dealer": { "labelKey": "label.dealer", "field": "dealer", "valueType": "string", "refValue": "", "space": 1},
+    "g_rm": { "labelKey": "label.rm", "field": "rm", "valueType": "string", "refValue": "", "space": 1},
+    "g_advancePaid": { "labelKey": "label.advancepaid", "field": "advancePaid", "valueType": "currency", "refValue": "", "space": 1},
+    "g_finance": { "labelKey": "label.finance", "field": "finance", "valueType": "ref", "refValue": "GENSTATUS", "space": 1},
+    "g_financeAmount": { "labelKey": "label.financeamount", "field": "financeAmount", "valueType": "currency", "refValue": "", "space": 1},
+    "g_createdBy": { "labelKey": "label.createdby", "field": "createdBy", "valueType": "audit", "refValue": "", "space": 1},
+    "g_createdDate": { "labelKey": "label.createddate", "field": "createdDate", "valueType": "audit", "refValue": "", "space": 1},
+    "g_modifiedBy": { "labelKey": "label.modifiedby", "field": "modifiedBy", "valueType": "audit", "refValue": "", "space": 1},
+    "g_modifiedDate": { "labelKey": "label.modifieddate", "field": "modifiedDate", "valueType": "audit", "refValue": "", "space": 1},
+    "g_comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2}
+},
+
+"sectionConfig": {
+    "SCHOOL_CONF": [
+        [
+            "month",
+            "amount",
+            "purpose",
+            "person",
+            "institution",
+            "status",
+            "createdBy",
+            "createdDate",
+            "modifiedBy",
+            "modifiedDate",
+            "comment"
+        ]
+    ],
+    "CHITFUND_CONF": [
+      [
+          "ch_chitGroup",
+          "ch_chitValue",
+          "ch_startDate",
+          "ch_maturedDate",
+          "ch_status",
+          "ch_poc",
+          "ch_person",
+          "ch_createdBy",
+          "ch_createdDate",
+          "ch_modifiedBy",
+          "ch_modifiedDate",
+          "ch_comment"
+      ]
+  ],
+  "PASSBOOK_CONF": [
+    [
+        "pb_month",
+        "pb_amount",
+        "pb_payMode",
+        "pb_createdBy",
+        "pb_createdDate",
+        "pb_modifiedBy",
+        "pb_modifiedDate",
+        "pb_comment"
+    ]
+],
+"PIGGYBANK_CONF": [
+    [
+      "piggy_month",
+      "piggy_amount",
+      "piggy_basket",
+      "piggy_basketOwner",
+      "piggy_fromPerson",
+      "piggy_createdBy",
+      "piggy_createdDate",
+      "piggy_modifiedBy",
+      "piggy_modifiedDate",
+      "piggy_comment"
+    ]
+],
+"GARAGE_CONF": [
+    [
+      "g_model",
+      "g_make",
+      "g_type",
+      "g_cost",
+      "g_bookedDate",
+      "g_deliveryDate",
+      "g_regNumber",
+      "g_dealer",
+      "g_rm",
+      "g_advancePaid",
+      "g_finance",
+      "g_financeAmount",
+      "g_createdBy",
+      "g_createdDate",
+      "g_modifiedBy",
+      "g_modifiedDate",
+      "g_comment"
+    ]
+]
+
+}
+}

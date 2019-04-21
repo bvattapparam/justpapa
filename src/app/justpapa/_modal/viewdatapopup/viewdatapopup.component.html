@@ -1,0 +1,55 @@
+<!-- Dummy Modal Starts -->
+<div class="modal demo-modal">
+    <div class="modal-dialog modal-body-custom">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{popuptitle}}</h5>
+          <button type="button" class="close" (click) = "activeModalService.close('close')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="col-12">
+            <div class="row">
+              <ng-container *ngFor="let sections of ViewLabelConfig['sectionConfig'][section]">
+              <ng-container *ngFor = "let section of sections">
+                <div [ngClass]="((ViewLabelConfig.fieldConfig[section].space === 1) ? 'col-4' : 'col-12')" class="mt-4">
+                    <label class="text-info label-custom" *ngIf = "(ViewLabelConfig.fieldConfig[section].valueType !== 'audit')">{{ViewLabelConfig.fieldConfig[section].labelKey | translate}}: </label>
+                    <ng-container *ngIf = "(ViewLabelConfig.fieldConfig[section].valueType === 'ref')">
+                      <div>
+                        {{(_manipulatedReference[ViewLabelConfig.fieldConfig[section].refValue][content[ViewLabelConfig.fieldConfig[section].field]]) || "&mdash;"}}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf = "(ViewLabelConfig.fieldConfig[section].valueType === 'date')">
+                      <div>
+                        {{(content[ViewLabelConfig.fieldConfig[section].field] | asqDate) || "&mdash;"}}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf = "(ViewLabelConfig.fieldConfig[section].valueType === 'date1')">
+                        <div>
+                          {{(content[ViewLabelConfig.fieldConfig[section].field] | asqDate:'datetime') || "&mdash;"}}
+                        </div>
+                      </ng-container>
+                    <ng-container *ngIf = "(ViewLabelConfig.fieldConfig[section].valueType === 'currency')">
+                      <div>
+                        {{(content[ViewLabelConfig.fieldConfig[section].field] | asqCurrency) || "&mdash;"}}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf = "(ViewLabelConfig.fieldConfig[section].valueType === 'string')">
+                      <div [innerHTML] = "(content[ViewLabelConfig.fieldConfig[section].field] | formatString) || '&mdash;'"></div>
+                    </ng-container>
+                </div>
+              </ng-container>
+            </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="col-12 text-right">
+            <span [innerHTML] = "auditData"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Dummy Modal Ends -->

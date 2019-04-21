@@ -1,0 +1,97 @@
+<div class="row">
+  <div class="col-md-12 stretch-card">
+    <nav aria-label="breadcrumb" class="custom-breadcrumb">
+      <ol class="breadcrumb breadcrumb-custom">
+        <li class="breadcrumb-item"><a routerLink ="/secure/dashboard">{{'menu.dashboard' | translate}}</a></li>
+        <li class="breadcrumb-item"><a routerLink ="/secure/chitfund">{{'menu.chitfund' | translate}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <span>{{'menu.passbook' | translate}}</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<div class="row mt-3" *ngIf="hasMatured">
+    <div class="col-lg-12">
+      <div class="custome-alert font-weight-bold text-left alert alert-success" role="alert" >
+       <span [innerHTML] = "'label.chitfund.matured.message' | translate"></span>
+      </div>
+    </div>
+  </div>
+<div class="row mt-5">
+  <div class="col-12 col-xl-5 mb-4 mb-xl-0">
+    <h5 class="mt-1 font-weight-bold">{{chitfundData[0].chitGroup}}</h5>
+    <h6 class="font-weight-normal mb-0">{{_manipulatedReference.PERSON[chitfundData[0].person]}}</h6>
+  </div>
+  <div class="col-7">
+    <div class="d-flex align-items-center justify-content-between flex-wrap">
+      <div class="border-right text-right pr-4 mb-3 mb-xl-0">
+        <p class="text-muted">{{'label.chitvalue' | translate}}</p>
+        <h4 class="mb-0 font-weight-bold">{{(chitfundData[0].chitValue | asqCurrency) || "&mdash;"}}</h4>
+      </div>
+      <div class="border-right text-right pr-4 mb-3 mb-xl-0">
+        <p class=" text-info">{{'label.maturedvalue' | translate}}</p>
+        <h4 class="mb-0 font-weight-bold">{{(chitfundData[0].maturedValue | asqCurrency) || "&mdash;"}}</h4>
+      </div>
+      <div class="border-right text-right pr-4 mb-3 mb-xl-0">
+        <p class="text-warning">{{'label.paid' | translate}}</p>
+        <h4 class="mb-0 font-weight-bold">{{(paid | asqCurrency) || "&mdash;"}}</h4>
+      </div>
+      <div class="border-right text-right pr-4 mb-3 mb-xl-0">
+        <p class="text-success">{{'label.profit' | translate}}</p>
+        <h4 class="mb-0 font-weight-bold">{{(profit | asqCurrency) || "&mdash;"}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-lg-12 grid-margin stretch-card" *ngIf="!showModuleSpinner">
+    <div class="card">
+      <div class="card-body">
+        <h4 class=" text-uppercase"><i class="icon ti-marker-alt"></i> {{'label.passbook' | translate}}</h4>
+        <div class="table-responsive mt-5" >
+          <table class="table" *ngIf='!showModuleSpinner && passbookData?.length > 0'>
+            <thead>
+              <tr class="text-uppercase">
+                <th>{{'label.sno' | translate}}</th>
+                <th>{{'label.month' | translate}}</th>
+                <th class="text-right">{{'label.amount' | translate}}</th>
+                <th>{{'label.paymode' | translate}}</th>
+                <th class="text-right">{{'label.action' | translate}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-capialize" *ngFor="let record of passbookData; let sno = index">
+                <td># {{sno + 1}}</td>
+                <td>{{(record.month | asqDate) || "&mdash;"}}</td>
+                <td class="text-right">{{(record.amount | asqCurrency) || "&mdash;"}}</td>
+                <td>{{(_manipulatedReference.PAYMODE[record.payMode]) || "&mdash;"}}</td>
+                <td class="text-right">
+                  <i *ngIf="!hasMatured" class="ti-pencil-alt font-weight-bold text-warning text-link" (click)="editData(record.passbookId);"></i>
+                  &nbsp;<i class="icon-eye font-weight-bold text-warning text-link" (click)="viewData(record);"></i>
+                  &nbsp;<i *ngIf="!hasMatured" class="icon-trash font-weight-bold text-warning text-link" (click)="editData(record.id);"></i>
+                </td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td colspan="8" *ngIf = "errorMessge"> {{ errorMessge | translate }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="col-12 text-warning mt-5 text-center" *ngIf="passbookData?.length < 1">
+            <h6 class="font-weight-bold">{{'message.nodatafound' | translate}}</h6>
+          </div>
+          <div class="col-12 text-right mt-5">
+            <button type="button" [disabled] = "hasMatured" class="btn btn-primary" (click)="createNew();"><i class="ti-pencil font-weight-bold"></i> {{'label.addnew' | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="loadRunner_modules nobackground" *ngIf="showModuleSpinner">
+  <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div> -->

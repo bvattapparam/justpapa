@@ -1,0 +1,57 @@
+
+<div class="auth-form-transparent text-left p-3">
+  <div class="brand-logo">
+    <img src="assets/images/logo.png" alt="logo">
+  </div>
+  <h4>{{'login.welcome' | translate}}</h4>
+  <h6 class="font-weight-light">{{'login.welcomesummary' | translate}}</h6>
+  <div class="alert alert-fill-danger mt-3" role="alert" *ngIf = "isInvalidCredentials">
+    {{'label.invalidcredentials' | translate}}
+  </div>
+  <form class="pt-3" name="userlogin" (ngSubmit) = "loginbtn()" [formGroup] = "userForm">
+    <div class="form-group">
+      <label for="exampleInputEmail">{{'label.username' | translate}}</label>
+      <div class="input-group">
+        <div class="input-group-prepend bg-transparent">
+          <span [ngClass] = "{'input-error-withimage-left': (userForm.controls.username.errors && isLoginClicked) || isInvalidUser}" class="input-group-text bg-transparent border-right-0">
+            <i class="ti-user text-primary"></i>
+          </span>
+        </div>
+        <input type="text" [ngClass] = "{'input-error-withimage-right': (userForm.controls.username.errors && isLoginClicked) || isInvalidUser}" class="form-control form-control-lg border-left-0 form-control-danger" formControlName = "username" placeholder="{{'placeholder.username' | translate}}">
+      </div>
+      <label class="error text-danger" *ngIf="(userForm.controls.username.errors && isLoginClicked)">{{'error.username.mandatory' | translate}}</label>
+      <label class="error text-danger" *ngIf="isLoginClicked && isInvalidUser">{{'error.username.length' | translate}}</label>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword">{{'label.password' | translate}}</label>
+      <div class="input-group">
+        <div class="input-group-prepend bg-transparent">
+          <span [ngClass] = "{'input-error-withimage-left': userForm.controls.password.errors && isLoginClicked}" class="input-group-text bg-transparent border-right-0">
+            <i class="ti-lock text-primary"></i>
+          </span>
+        </div>
+        <input type="password" [ngClass] = "{'input-error-withimage-right': (userForm.controls.password.errors && isLoginClicked)}" class="form-control form-control-lg border-left-0" formControlName =  "password" placeholder="{{'placeholder.password' | translate}}">                        
+      </div>
+      <label class="error text-danger" *ngIf="(userForm.controls.password.errors && isLoginClicked)">{{'error.password.mandatory' | translate}}</label>
+    </div>
+    <div class="my-2 d-flex justify-content-between align-items-center">
+      <div class="form-check">
+        <label class="form-check-label text-muted">
+          <input type="checkbox" class="form-check-input">
+          {{'label.keepmesignedin' | translate}}
+        </label>
+      </div>
+      <a routerLink ="/login/forgotpwd" class="auth-link text-primary">{{'label.forgotpassword' | translate}}</a>
+    </div>
+    <div class="my-3">
+      <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn text-uppercase" >{{'label.login' | translate}}</button>
+    </div>
+    <div class="text-center mt-4 font-weight-light">
+      {{'label.donnothaveaccount' | translate}} <a routerLink ="/login/createuser" class="text-primary">{{'label.create' | translate}}</a>
+    </div>
+  </form>
+</div>
+
+<div class="loadRunner_modules" *ngIf="showModuleSpinner">
+  <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div>

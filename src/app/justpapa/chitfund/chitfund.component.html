@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-12 stretch-card">
+    <nav aria-label="breadcrumb" class="custom-breadcrumb">
+      <ol class="breadcrumb breadcrumb-custom">
+        <li class="breadcrumb-item"><a routerLink ="/secure/dashboard">{{'menu.dashboard' | translate}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><span>{{'menu.chitfund' | translate}}</span></li>
+      </ol>
+    </nav>
+  </div>
+  
+  <div class="col-6"></div>
+  <div class="col-6 text-right">
+    <form [formGroup]="searchForm" class="cmxform mt-4" novalidate>
+      <div class="form-group select-custom">
+        <select class="form-control form-control-lg w-100" formControlName="person" (change) = "onPersonChange($event.target.value)">
+          <option [value] = "0" >{{'label.chooseperson' | translate}}</option>
+          <ng-container *ngFor="let person of refData.PERSON">
+            <option [value] = "person.value" >{{person.name}}</option>
+          </ng-container>
+        </select>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <ng-container *ngIf = "showChitGroup">
+    <app-chitfund-master class="col-12" [personObj] = "personObj"></app-chitfund-master>
+  </ng-container>
+
+  <ng-container *ngIf = "!showChitGroup">
+    <div class="col-12 stretch-card grid-margin grid-margin-md-0">
+      <div class="card data-icon-card-secondary">
+        <div class="card-body">                     
+          <div class="row">
+            <div class="col-8 text-white">
+              <h4 [innerHTML]="'label.common.message.one' | translate"></h4>
+              </div>
+            <div class="col-4 background-icon">
+              <i class="ti-search"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+    
+</div>
