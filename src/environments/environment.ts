@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   //API_URL : "http://localhost:80/asq-api",
-  API_URL: "/asq-api",
+  API_URL: "/justpapa-api",
   login_URL: "/login/",
   logout_URL: '/login/closeinfo',
   login_urlf: '/login/forgotpwd',

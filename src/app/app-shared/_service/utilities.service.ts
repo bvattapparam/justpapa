@@ -27,4 +27,13 @@ export class UtilitiesService {
     return this.showMessageBoxBundle;
   }
 
+  dateFormat(inputDate: any) {
+    const formattedDate = {
+        'year'  : inputDate.getFullYear(),
+        'month' : inputDate.getMonth()+1,
+        'day'   : inputDate.getDate()
+    }
+    return formattedDate;
+  }
+
 }

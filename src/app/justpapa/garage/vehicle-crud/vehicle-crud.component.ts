@@ -21,8 +21,6 @@ import { DatePipe } from '@angular/common';
    ]
 })
 export class VehicleCrudComponent implements OnInit {
-  prefillMonth: any;
-  tmpMonth: any;
   refData: any;
   showModuleSpinner = false;
   showMessageContainer = false;
@@ -32,8 +30,6 @@ export class VehicleCrudComponent implements OnInit {
   messageBox: any;
   vehicleId: any;
   result: any;
-  person: any;
-  showMaturedValue: any = false;
   financeData: any = 'GENSTATUS14';
 
   constructor(
@@ -53,7 +49,6 @@ export class VehicleCrudComponent implements OnInit {
       const publicParamList = this.refService.getPublicParam();
       this.refData = publicParamList['references'];
       this.referenceForm();
-      //this.statusChange();
       if (this.flagType === 'edit') {
         this.getVehicleByvehicleId();
         this.financeLogic(this.financeData);
@@ -116,8 +111,8 @@ export class VehicleCrudComponent implements OnInit {
     this.garageService.getVehiclesByvehiclId(this.vehicleId)
     .subscribe((resp: any) => {
       this.result = resp[0];
-      const bookeddate = this.dateFormat(new Date(this.result.bookedDate));
-      const deliverydate = this.dateFormat(new Date(this.result.deliveryDate));
+      const bookeddate = this.utilService.dateFormat(new Date(this.result.bookedDate));
+      const deliverydate = this.utilService.dateFormat(new Date(this.result.deliveryDate));
       
       this.crudForm.patchValue({
         model:          this.result.model,
@@ -140,14 +135,7 @@ export class VehicleCrudComponent implements OnInit {
       this.authApiService.handleError(err, 'secure');
     }); 
   }
-  dateFormat(inputDate: any) {
-    const formattedDate = {
-        'year'  : inputDate.getFullYear(),
-        'month' : inputDate.getMonth()+1,
-        'day'   : inputDate.getDate()
-    }
-    return formattedDate;
-  }
+  
   onSubmitClicked(){
     this.userActionPerformed();
     if (!this.crudForm.valid) {
