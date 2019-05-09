@@ -97,8 +97,24 @@
     "label.no": "No",
     "label.vehicleedit": "Edit Vehicle",
     "label.vehicleadd": "Add Vehicle",
-
-    
+    "label.resetlanguage": "Reset Language",
+    "label.resetpassword": "Reset Password",
+    "label.cnfpassword": "Confirm Password",
+    "label.banking": "Banking",
+    "label.vehicle": "Vehicle",
+    "label.transactiondate": "Transaction Date",
+    "label.servicestation": "Service Station",
+    "label.item": "Item",
+    "label.transactionadd": "Transaction Add",
+    "label.transactionedit": "Transaction Edit",
+    "label.house": "House",
+    "label.builder": "Builder",
+    "label.bhk": "BHK",
+    "label.location": "Location",
+    "label.receipt": "Receipt",
+    "label.bank": "Bank",
+    "label.handoverdate": "Handoverdate",
+    "label.nohousecreated": "There is no house created. Please click here to create one.",
 
     "menu.dashboard": "Dashboard",
     "menu.school": "School",
@@ -131,6 +147,7 @@
     "menu.piggybank": "Piggy Bank",
     "menu.fundbasket": "Fund Basket",
     "menu.garage": "Garage",
+    "menu.apartment": "Apartment",
 
 
 
@@ -150,6 +167,10 @@
     "SUCCESS_PIGGYBANK_UPDATED": "Piggy bank updated successfully",
     "SUCCESS_VEHICLE_UPDATED": "Vehicle updated successfully",
     "SUCCESS_VEHICLE_ADDED": "vehicle added successfully",
+    "SUCCESS_PASSWORD_UPDATED": "Password updated successfully.",
+    "SUCCESS_LANGUAGE_UPDATED": "Language updated successfully.",
+    "SUCCESS_VHTRANSACTION_UPDATED": "Vehicle Trasaction updated successfully.",
+    "SUCCESS_VHTRANSACTION_ADDED": "Vehicle Trasaction added successfully.",
     
     "E_UNKNOWN" : "Unknown issue occured. Please retry or contact the system administrator for assistance.", 
 
@@ -187,6 +208,12 @@
     "error.advancepaid.mandatory": "Advance paid should not be empty",
     "error.financeamount.mandatory": "Finance amount should not be empty",
     "error.finance.mandatory": "Finance should not be empty",
+    "error.cnfpassword.mandatory": "Confirm Password should not be empty",
+    "error.cnfpassword.mismatch": "Confirm Password is different from Password",
+    "error.purpose.mandatory": "Purpose should not be empty",
+    "error.servicestation.mandatory": "Service Station should not be empty",
+    "error.item.mandatory": "Item should not be empty",
+    "error.tranxdate.mandatory": "Transaction Date should not be empty",
 
     "message.serviceerror": "Service is temporarly unavailable. Please contact administrator for more information. If you face the same issue in future, please ensure its reported to the respective person on time.",
     "message.nodatafound": "There is no data available for now. Please check later or contact administrator.",

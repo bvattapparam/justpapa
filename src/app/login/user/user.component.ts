@@ -83,7 +83,7 @@ export class UserComponent implements OnInit {
   resetForm(){
     this.isLoginClicked = false;
     this.isInvalidCredentials = false;
-    this.showModuleSpinner = false;
+    //this.showModuleSpinner = false;
   }
   navigateToNextStep(url, resp){
     if (url === 'justpapa') {

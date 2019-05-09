@@ -10,11 +10,12 @@ const routes: Routes = [{
   children: [
     {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     {path: 'dashboard', component: DashboardComponent},
-    {path: 'profile', component: ProfileComponent},
+    {path: 'profile', loadChildren: './profile/profile.module#ProfileModule'},
     {path: 'settings', loadChildren: './settings/settings.module#SettingsModule'},
     {path: 'school', loadChildren: './school/school.module#SchoolModule'},
     {path: 'chitfund', loadChildren: './chitfund/chitfund.module#ChitfundModule'},
     {path: 'piggybank', loadChildren: './piggy-bank/piggy-bank.module#PiggyBankModule'},
+    {path: 'house', loadChildren: './house/house.module#HouseModule'},
     {path: 'garage', loadChildren: './garage/garage.module#GarageModule'},
     {path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
   ]

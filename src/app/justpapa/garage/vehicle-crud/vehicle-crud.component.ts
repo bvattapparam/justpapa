@@ -92,7 +92,7 @@ export class VehicleCrudComponent implements OnInit {
     this.financeData = value;
     this.financeLogic(this.financeData);
   }
-  financeLogic(financedata){
+  financeLogic(financedata: any){
     this.financeData = financedata;
     this.crudForm.get('finance').valueChanges.subscribe(
       (mode: string) =>{

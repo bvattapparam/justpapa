@@ -86,7 +86,6 @@ export class PiggyBankCrudComponent implements OnInit {
       this.piggyService.getPassbookBypbId(this.pbId)
       .subscribe((resp: any) => {
         this.result = resp[0];
-        console.log('res', this.result)
         const tmpMonth = new Date(this.result.month);
         const month = {
           result: {

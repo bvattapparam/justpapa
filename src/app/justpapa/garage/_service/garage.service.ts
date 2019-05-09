@@ -72,6 +72,58 @@ export class GarageService {
     })
      .finally(()=> this.onEnd());
   }
+  getTransactions(payload: any) {
+    if(payload.limit){
+      payload.offset           =   (payload.currentPage-1) * payload.limit;
+    }
+    return this.http.post(API_URL + '/garage/transaction-fetch/?action=byvehicleId', payload, httpOptions)
+    .map((resp: any) => {
+      console.log('resp', resp)
+      return resp;
+    })
+    .catch((error: any) => {
+      this.authapiService.handleError(error, 'secure');
+      return Observable.throw(error);
+    })
+     .finally(()=> this.onEnd());
+  }
+  getTransactionById(id: any) {
+    return this.http.get(API_URL + '/garage/transaction-fetch/?action=byId&Id=' + id + '&pagenation=false')
+    .map((resp: any) => {
+      return resp;
+    })
+    .catch((error: any) => {
+      this.authapiService.handleError(error, 'secure');
+      return Observable.throw(error);
+    })
+     .finally(()=> this.onEnd());
+  }
+  addTransaction(formvalues: any) {
+    formvalues['modifiedBy'] = this.userService.userBasicDetails[0].userName;
+    const payload = formvalues;
+     return this.http.post(API_URL + '/garage/transaction-add/', payload, httpOptions)
+     .map((resp: any) => {
+       return resp;
+     })
+     .catch((error: any) => {
+      this.authapiService.handleError(error, 'secure');
+      return Observable.throw(error);
+    })
+     .finally(()=> this.onEnd());
+  }
+  updateTransaction(formvalues: any) {
+    formvalues['modifiedBy'] = this.userService.userBasicDetails[0].userName;
+    const payload = formvalues;
+     return this.http.post(API_URL + '/garage/transaction-update/', payload, httpOptions)
+     .map((resp: any) => {
+       return resp;
+     })
+     .catch((error: any) => {
+      this.authapiService.handleError(error, 'secure');
+      return Observable.throw(error);
+    })
+     .finally(()=> this.onEnd());
+  }
 
   onEnd(): void {
     throw new Error("Method not implemented.");

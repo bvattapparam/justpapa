@@ -64,7 +64,10 @@ export class GarageComponent implements OnInit {
     this._router.navigate(['/secure/garage/vehiclecrud/add/']);
   }
   editData(vehicleId: any) {
-    this._router.navigate(['/secure/garage/vehiclecrud/edit/' + vehicleId]);
+    this._router.navigate(['/secure/garage/vehiclecrud/edit/' + vehicleId], this.result);
+  }
+  transactions(vehicleId: any) {
+    this._router.navigate(['/secure/garage/transactions/' + vehicleId]);
   }
 
 }

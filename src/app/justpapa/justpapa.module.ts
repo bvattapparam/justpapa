@@ -4,11 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './_service/user.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { JustpapaRoutingModule } from './justpapa-routing.module';
-
 import { JustpapaComponent } from './justpapa/justpapa.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './_layout/header/header.component';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InfopopupComponent } from './_modal/infopopup/infopopup.component';
 import { AuthService } from './_auth/auth.service';
@@ -19,11 +17,11 @@ import { CheckuserGuard } from './_guard/checkuser.guard';
 import { SidebarComponent } from './_layout/sidebar/sidebar.component';
 import { SidebarRightComponent } from './_layout/sidebar-right/sidebar-right.component';
 import { EventsService } from './_service/events.service';
-import { ProfileComponent } from './profile/profile.component';
 import { FooterComponent } from './_layout/footer/footer.component';
 import { ViewdatapopupComponent } from './_modal/viewdatapopup/viewdatapopup.component';
 import { SharedModule } from './shared/shared.module';
 import { CustomDateService } from './_service/custom-date.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -33,8 +31,9 @@ import { CustomDateService } from './_service/custom-date.service';
     HttpClientModule,
     NgbModule.forRoot(),
     AppSharedModule,
-    SharedModule
-    
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     JustpapaComponent, 
@@ -42,8 +41,7 @@ import { CustomDateService } from './_service/custom-date.service';
     HeaderComponent, 
     InfopopupComponent, 
     SidebarComponent, 
-    SidebarRightComponent, 
-    ProfileComponent, 
+    SidebarRightComponent,
     FooterComponent, 
     ViewdatapopupComponent
   ],

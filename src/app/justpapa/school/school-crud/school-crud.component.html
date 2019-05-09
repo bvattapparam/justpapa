@@ -17,7 +17,7 @@
   
   <ng-container *ngIf="messageBox?.showMessageContainer === true">
     <div class="col-lg-12">
-      <div class="custome-alert font-weight-bold text-left alert " [ngClass]="{'alert-success': messageBox?.msgClass === 'success', 'alert-danger': messageBox?.msgClass === 'blocker'}" role="alert" >
+      <div class="custome-alert text-left alert " [ngClass]="{'alert-success': messageBox?.msgClass === 'success', 'alert-danger': messageBox?.msgClass === 'blocker'}" role="alert" >
         {{messageBox?.messageContent | translate}}
       </div>
     </div>
@@ -119,8 +119,14 @@
       </div>
     </div>
   </div>
-  <div class="loadRunner_modules postion-fixed" *ngIf="showModuleSpinner">
-    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+  
+</div>
+<div class="spinner spinner-fixed-position" *ngIf="showModuleSpinner">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </div>
 

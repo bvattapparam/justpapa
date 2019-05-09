@@ -9,6 +9,8 @@ import { AsqCurrencyPipe } from './_pipe/asq-currency.pipe';
 import { AsqDatePipe } from './_pipe/asq-date.pipe';
 import { DateService } from "./_service/date.service";
 import { FormatStringPipe } from './_pipe/format-string.pipe';
+import { NumberDirective } from './_directive/number.directive';
+import { AsqCurrencyDirective } from './_directive/asq-currency.directive';
 
 
 @NgModule({
@@ -19,13 +21,17 @@ import { FormatStringPipe } from './_pipe/format-string.pipe';
     InfopopupComponent, 
     AsqCurrencyPipe, 
     AsqDatePipe, 
-    FormatStringPipe
+    FormatStringPipe, 
+    NumberDirective, 
+    AsqCurrencyDirective
   ],
   exports: [
     InfopopupComponent,
     AsqCurrencyPipe,
     AsqDatePipe,
-    FormatStringPipe
+    FormatStringPipe,
+    NumberDirective,
+    AsqCurrencyDirective
   ],
   entryComponents: [
     InfopopupComponent

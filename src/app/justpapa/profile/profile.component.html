@@ -12,9 +12,9 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
               <div class="border-bottom text-center pb-4">
-                <img src="../../../assets/images/avatar-2.png" alt="profile" class="img-lg rounded-circle mb-3"/>
+                <img src="assets/images/avatar-2.png" alt="profile" class="img-lg rounded-circle mb-3"/>
                 <div class="mb-3">
                   <h4>{{userPofile.firstName}} {{userPofile.lastName}}</h4>
                 </div>
@@ -90,106 +90,51 @@
               </div>
               <button class="btn btn-primary btn-block mb-2">Preview</button>
             </div>
-            <div class="col-lg-8">
-              <div class="mt-4 py-2 border-top border-bottom">
-                <ul class="nav profile-navbar">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <i class="ti-user"></i>
-                      Info
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#">
-                      <i class="ti-receipt"></i>
-                      Feed
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <i class="ti-calendar"></i>
-                      Agenda
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <i class="ti-clip"></i>
-                      Resume
-                    </a>
-                  </li>
-                </ul>
+            <div class="col-lg-6">
+              <div class="border-bottom py-4">
+                <h6 class="text-uppercase">{{'label.banking' | translate}}</h6>
+                <div class="text-left">
+                  <p class="clearfix" *ngFor = "let bank of piggyBanks">
+                    <span class="float-left">
+                        {{(bank['bank']) || "&mdash;"}}
+                    </span>
+                    <span class="float-right text-muted">
+                      {{(bank['purpose']) || "&mdash;"}}
+                    </span>
+                  </p>
+                </div>                                                               
               </div>
-              <div class="profile-feed">
-                <div class="d-flex align-items-start profile-feed-item">
-                  <img src="https://via.placeholder.com/43x43" alt="profile" class="img-sm rounded-circle"/>
-                  <div class="ml-4">
-                    <h6>
-                      Mason Beck
-                      <small class="ml-4 text-muted"><i class="ti-time mr-1"></i>10 hours</small>
-                    </h6>
-                    <p>
-                      There is no better advertisement campaign that is low cost and also successful at the same time.
-                    </p>
-                    <p class="small text-muted mt-2 mb-0">
-                      <span>
-                        <i class="ti-star mr-1"></i>4
-                      </span>
-                      <span class="ml-2">
-                        <i class="ti-comment mr-1"></i>11
-                      </span>
-                      <span class="ml-2">
-                        <i class="ti-share"></i>
-                      </span>
-                    </p>
-                  </div>
-                </div>
-                <div class="d-flex align-items-start profile-feed-item">
-                  <img src="https://via.placeholder.com/43x43" alt="profile" class="img-sm rounded-circle"/>
-                  <div class="ml-4">
-                    <h6>
-                      Willie Stanley
-                      <small class="ml-4 text-muted"><i class="ti-time mr-1"></i>10 hours</small>
-                    </h6>
-                    <img src="https://via.placeholder.com/640x385" alt="sample" class="rounded mw-100"/>                            
-                    <p class="small text-muted mt-2 mb-0">
-                      <span>
-                        <i class="ti-star mr-1"></i>4
-                      </span>
-                      <span class="ml-2">
-                        <i class="ti-comment mr-1"></i>11
-                      </span>
-                      <span class="ml-2">
-                        <i class="ti-share"></i>
-                      </span>
-                    </p>
-                  </div>
-                </div>
-                <div class="d-flex align-items-start profile-feed-item">
-                  <img src="https://via.placeholder.com/43x43" alt="profile" class="img-sm rounded-circle"/>
-                  <div class="ml-4">
-                    <h6>
-                      Dylan Silva
-                      <small class="ml-4 text-muted"><i class="ti-time mr-1"></i>10 hours</small>
-                    </h6>
-                    <p>
-                      When I first got into the online advertising business, I was looking for the magical combination 
-                      that would put my website into the top search engine rankings
-                    </p>
-                    <img src="https://via.placeholder.com/640x385" alt="sample" class="rounded mw-100"/>                                                        
-                    <p class="small text-muted mt-2 mb-0">
-                      <span>
-                        <i class="ti-star mr-1"></i>4
-                      </span>
-                      <span class="ml-2">
-                        <i class="ti-comment mr-1"></i>11
-                      </span>
-                      <span class="ml-2">
-                        <i class="ti-share"></i>
-                      </span>
-                    </p>
-                  </div>
-                </div>
+              <div class="border-bottom py-4 position-relative">
+                <h6 class="text-uppercase">{{'label.resetpassword' | translate}}</h6>
+                <div class="text-left">
+                  <app-resetpassword></app-resetpassword>
+                </div>                                                               
               </div>
+              <div class="border-bottom py-4">
+                <h6 class="text-uppercase">{{'label.resetlanguage' | translate}}</h6>
+                <div class="text-left">
+                  <ng-container *ngIf="messageBox?.showMessageContainer === true">
+                    <div class="">
+                      <div class="custome-alert text-left alert " [ngClass]="{'alert-success': messageBox?.msgClass === 'success', 'alert-danger': messageBox?.msgClass === 'blocker'}" role="alert" >
+                        {{messageBox?.messageContent | translate}}
+                      </div>
+                    </div>
+                  </ng-container>
+                  <form [formGroup]="lngForm" class="cmxform mt-4">
+                    <div class="form-group relative">
+                      <div class="select-custom">
+                        <select class="form-control form-control-lg w-100" formControlName="language" (change)="updateLanguage($event.target.value)">
+                          <ng-container *ngFor="let rel of languages">
+                            <option [value] = "rel.value" >{{rel.name}}</option>
+                          </ng-container>
+                        </select>
+                        </div>
+                      <label class="error text-danger" *ngIf="(lngForm.controls.language.errors && isSubmitClicked) || (lngForm.controls.language.value === '0' && isSubmitClicked)">{{'error.language.mandatory' | translate}}</label>
+                    </div>
+                  </form>
+                </div>                                                               
+              </div>
+
             </div>
           </div>
         </div>

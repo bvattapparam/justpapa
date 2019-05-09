@@ -61,7 +61,19 @@
     "g_createdDate": { "labelKey": "label.createddate", "field": "createdDate", "valueType": "audit", "refValue": "", "space": 1},
     "g_modifiedBy": { "labelKey": "label.modifiedby", "field": "modifiedBy", "valueType": "audit", "refValue": "", "space": 1},
     "g_modifiedDate": { "labelKey": "label.modifieddate", "field": "modifiedDate", "valueType": "audit", "refValue": "", "space": 1},
-    "g_comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2}
+    "g_comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2},
+
+    "vht_vehicleId": { "labelKey": "label.vehicle", "field": "vehicleId", "valueType": "ref", "refValue": "VH", "space": 1},
+    "vht_amount": { "labelKey": "label.amount", "field": "amount", "valueType": "currency", "refValue": "", "space": 1},
+    "vht_purpose": { "labelKey": "label.purpose", "field": "purpose", "valueType": "ref", "refValue": "VHPUR", "space": 1},
+    "vht_tranxDate": { "labelKey": "label.transactiondate", "field": "tranxDate", "valueType": "date", "refValue": "", "space": 1},
+    "vht_item": { "labelKey": "label.item", "field": "item", "valueType": "string", "refValue": "", "space": 1},
+    "vht_serviceStation": { "labelKey": "label.servicestation", "field": "serviceStation", "valueType": "string", "refValue": "", "space": 1},
+    "vht_createdBy": { "labelKey": "label.createdby", "field": "createdBy", "valueType": "audit", "refValue": "", "space": 1},
+    "vht_createdDate": { "labelKey": "label.createddate", "field": "createdDate", "valueType": "audit", "refValue": "", "space": 1},
+    "vht_modifiedBy": { "labelKey": "label.modifiedby", "field": "modifiedBy", "valueType": "audit", "refValue": "", "space": 1},
+    "vht_modifiedDate": { "labelKey": "label.modifieddate", "field": "modifiedDate", "valueType": "audit", "refValue": "", "space": 1},
+    "vht_comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2}
 },
 
 "sectionConfig": {
@@ -141,6 +153,21 @@
       "g_modifiedBy",
       "g_modifiedDate",
       "g_comment"
+    ]
+],
+"VEHICLETRNX_CONF": [
+    [
+      "vht_vehicleId",
+      "vht_amount",
+      "vht_purpose",
+      "vht_tranxDate",
+      "vht_item",
+      "vht_serviceStation",
+      "vht_createdBy",
+      "vht_createdDate",
+      "vht_modifiedBy",
+      "vht_modifiedDate",
+      "vht_comment"
     ]
 ]
 

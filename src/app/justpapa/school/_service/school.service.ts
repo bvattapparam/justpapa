@@ -33,7 +33,7 @@ export class SchoolService {
     })
    // .catch(error => this.authapiService.handleError(error));
   }
-  getTransactions(pushdata) {
+  getTransactions(pushdata: any) {
     if(pushdata.limit){
       pushdata.offset           =   (pushdata.currentPage-1) * pushdata.limit;
     }

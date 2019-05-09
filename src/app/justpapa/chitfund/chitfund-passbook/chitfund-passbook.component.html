@@ -2,4 +2,12 @@
 <ng-container *ngIf="!showModuleSpinner">
   <app-cf-passbook [passbookData]="result" [chitId] = "chitId"></app-cf-passbook>
 </ng-container>
+<div class="spinner" *ngIf="showModuleSpinner">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
 

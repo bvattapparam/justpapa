@@ -18,7 +18,7 @@
       <div class="card-body">
           <div class="row">
             <div class="col-4">
-                <img src="../../../assets/images/{{record.type}}.png" class="img-lg rounded" alt="profile image">
+                <img src="assets/images/{{record.type}}.png" class="img-lg rounded" alt="profile image">
             </div>
             <div class="col-8 text-right mt-3">
                 <h6 class="mb-0 text-uppercase">{{(record.model) || "&mdash;"}}</h6>
@@ -26,7 +26,7 @@
                 <p class="mb-0 text-success font-weight-bold mt-3">
                     <i class="ti-pencil-alt font-weight-bold text-warning text-link" (click)="editData(record.vehicleId);"></i>
                     &nbsp;<i class="icon-eye font-weight-bold text-warning text-link" (click)="viewData(record);"></i>
-                    &nbsp;<i class="icon-share font-weight-bold text-warning text-link" (click)="transactions(vehicleId);"></i>
+                    &nbsp;<i class="icon-share font-weight-bold text-warning text-link" (click)="transactions(record.vehicleId);"></i>
                 </p>
               </div>
           </div>
@@ -45,4 +45,12 @@
         </div>
       </div>
     </div>
+</div>
+<div class="spinner" *ngIf="showModuleSpinner">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 </div>

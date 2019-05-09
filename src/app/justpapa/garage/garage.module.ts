@@ -9,6 +9,8 @@ import { GarageService } from './_service/garage.service';
 import { AppSharedModule } from '../../app-shared/app-shared.module';
 import { SharedModule } from '../shared/shared.module';
 import { VehicleCrudComponent } from './vehicle-crud/vehicle-crud.component';
+import { TransactionComponent } from './transaction/transaction.component';
+import { TransactionCrudComponent } from './transaction-crud/transaction-crud.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,7 +24,9 @@ import { VehicleCrudComponent } from './vehicle-crud/vehicle-crud.component';
   ],
   declarations: [
     GarageComponent,
-    VehicleCrudComponent
+    VehicleCrudComponent,
+    TransactionComponent,
+    TransactionCrudComponent
   ],
   providers: [
     GarageService

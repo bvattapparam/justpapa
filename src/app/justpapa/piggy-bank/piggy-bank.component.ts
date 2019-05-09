@@ -45,7 +45,6 @@ export class PiggyBankComponent implements OnInit {
     this.piggyService.getPassbook()
     .subscribe((resp: any) => {
       this.result = resp[0].ITEM;
-      console.log('result', this.result)
       this.collectionSize = resp[1].TOTAL['collectionSize'];
       this.showModuleSpinner = false
     }, (err: any)=> {
