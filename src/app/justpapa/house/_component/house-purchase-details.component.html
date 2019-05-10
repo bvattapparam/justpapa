@@ -1,0 +1,55 @@
+
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class=" text-uppercase"><i class="icon ti-marker-alt"></i> {{'label.transaction' | translate}} <span> - {{'label.purchase.payment' | translate}}</span></h4>
+      <div class="table-responsive mt-5" >
+        <table class="table" *ngIf='!showSpinner && result[0]?.ITEM?.length > 0'>
+          <thead>
+            <tr class="text-uppercase">
+              <th>{{'label.sno' | translate}}</th>
+              <th>{{'label.paiddate' | translate}}</th>
+              <th>{{'label.purpose' | translate}}</th>
+              <th class="text-right">{{'label.amount' | translate}}</th>
+              <th>{{'label.poc' | translate}}</th>
+              <th class="text-right">{{'label.action' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-capialize" *ngFor="let record of result[0].ITEM; let sno = index">
+              <td># {{sno + 1}}</td>
+              <td>{{(record.paidDate | asqDate) || "&mdash;"}}</td>
+              <td class="text-capitalize">{{(record.purpose) || "&mdash;"}}</td>
+              <td class="text-right">{{(record.amount | asqCurrency) || "&mdash;"}}</td>
+              <td class="text-capitalize">{{(record.poc) || "&mdash;"}}</td>
+              <td class="text-right">
+                <i *ngIf="!hasMatured" class="ti-pencil-alt font-weight-bold text-warning text-link" (click)="editData(record.id);"></i>
+                &nbsp;<i class="icon-eye font-weight-bold text-warning text-link" (click)="viewData(record);"></i>
+                &nbsp;<i *ngIf="!hasMatured" class="icon-trash font-weight-bold text-warning text-link" (click)="editData(record.id);"></i>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td colspan="8" *ngIf = "errorMessge"> {{ errorMessge | translate }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="col-12 text-warning mt-5 text-center" *ngIf="result[0].ITEM?.length < 1">
+          <h6 class="font-weight-bold">{{'message.nodatafound' | translate}}</h6>
+        </div>
+        <div class="col-12 text-right mt-5">
+          <button type="button" class="btn btn-primary" (click)="createNew();"><i class="ti-pencil font-weight-bold"></i> {{'label.addnew' | translate}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="spinner" *ngIf="showSpinner">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>

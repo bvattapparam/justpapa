@@ -1,48 +1,54 @@
-<div class="row" *ngIf="basicDetails?.length > 0">
-  <div class="col-3 mt-3">
-    <label>{{'label.house' | translate}}</label>
-    <div>{{(basicDetails?.houseId) || "&mdash;"}}</div>
-  </div>
+<div class="col-12">
+  <div class="row mb-3 m-2" *ngIf="basicDetails">
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.house' | translate}}</label>
+      <div>{{(_manipulatedReference.HOUSE[basicDetails?.houseId]) || "&mdash;"}}</div>
+    </div>
 
-  <div class="col-3 mt-3">
-    <label>{{'label.builder' | translate}}</label>
-    <div>{{(basicDetails?.builder) || "&mdash;"}}</div>
-  </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.builder' | translate}}</label>
+      <div>{{(basicDetails?.builder) || "&mdash;"}}</div>
+    </div>
 
-  <div class="col-3 mt-3">
-    <label>{{'label.type' | translate}}</label>
-    <div>{{(basicDetails?.type) || "&mdash;"}}</div>
-  </div>
-  <div class="col-3 mt-3">
-    <label>{{'label.bhk' | translate}}</label>
-    <div>{{(basicDetails?.bhk) || "&mdash;"}}</div>
-  </div>
-  <div class="col-3 mt-3">
-    <label>{{'label.location' | translate}}</label>
-    <div>{{(basicDetails?.location) || "&mdash;"}}</div>
-  </div>
-  <div class="col-3 mt-3">
-    <label>{{'label.finance' | translate}}</label>
-    <div>{{(basicDetails?.finance) || "&mdash;"}}</div>
-  </div>
-  <div class="col-3 mt-3">
-    <label>{{'label.financeamount' | translate}}</label>
-    <div>{{(basicDetails?.financeAmount) || "&mdash;"}}</div>
-  </div>
-  <div class="col-3 mt-3">
-    <label>{{'label.bank' | translate}}</label>
-    <div>{{(basicDetails?.bank) || "&mdash;"}}</div>
-  </div>
-  <div class="col-3 mt-3">
-    <label>{{'label.rm' | translate}}</label>
-    <div>{{(basicDetails?.rm) || "&mdash;"}}</div>
-  </div>
-  <div class="col-3 mt-3">
-    <label>{{'label.bookeddate' | translate}}</label>
-    <div>{{house}}</div>
-  </div>
-  <div class="col-3 mt-3">
-    <label>{{'label.handoverdate' | translate}}</label>
-    <div>{{(basicDetails?.handoverDate) || "&mdash;"}}</div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.type' | translate}}</label>
+      <div>{{(_manipulatedReference.HOUSETYPE[basicDetails?.type]) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.bhk' | translate}}</label>
+      <div>{{(basicDetails?.bhk) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.location' | translate}}</label>
+      <div>{{(basicDetails?.location) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.finance' | translate}}</label>
+      <div>{{(_manipulatedReference.GENOPT[basicDetails?.finance]) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.financeamount' | translate}}</label>
+      <div>{{(basicDetails?.financeAmount | asqCurrency) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.bank' | translate}}</label>
+      <div>{{(basicDetails?.bank) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.rm' | translate}}</label>
+      <div>{{(basicDetails?.rm) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.bookeddate' | translate}}</label>
+      <div>{{(basicDetails?.bookedDate | asqDate) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.handoverdate' | translate}}</label>
+      <div>{{(basicDetails?.handoverDate | asqDate) || "&mdash;"}}</div>
+    </div>
+    <div class="col-12 mt-4">
+      <label class="text-info label-custom">{{'label.comment' | translate}}</label>
+      <div><span [innerHTML]="basicDetails?.comment | formatString"></span></div>
+    </div>
   </div>
 </div>
