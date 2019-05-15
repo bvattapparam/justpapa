@@ -1,0 +1,138 @@
+<div class="row">
+  <div class="col-md-12 stretch-card">
+    <nav aria-label="breadcrumb" class="custom-breadcrumb">
+      <ol class="breadcrumb breadcrumb-custom">
+        <li class="breadcrumb-item"><a routerLink ="/secure/dashboard">{{'menu.dashboard' | translate}}</a></li>
+        <li class="breadcrumb-item"><a routerLink ="/secure/house">{{'menu.house' | translate}}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          <span *ngIf="flagType === 'add'">{{'label.housepaymentadd' | translate}}</span>
+          <span *ngIf="flagType === 'edit'">{{'label.housepaymentedit' | translate}}</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <ng-container *ngIf="messageBox?.showMessageContainer === true">
+    <div class="col-lg-12">
+      <div class="custome-alert text-left alert " [ngClass]="{'alert-success': messageBox?.msgClass === 'success', 'alert-danger': messageBox?.msgClass === 'blocker'}" role="alert" >
+        <span [innerHTML] ="messageBox?.messageContent | translate"></span>
+      </div>
+    </div>
+  </ng-container>
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class=" text-uppercase"><i class="icon ti-marker-alt"></i> 
+          <span *ngIf="flagType === 'add'">{{'label.housepaymentadd' | translate}}</span>
+          <span *ngIf="flagType === 'edit'">{{'label.housepaymentedit' | translate}}</span>
+        </h4>
+        <form [formGroup]="crudForm" class="cmxform mt-4">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="houseid">{{'label.house' | translate}} :</label>
+                <div class="relative">
+                  <div class="select-custom">
+                    <select class="form-control form-control-lg w-100" [ngClass] = "{'input-error-box': (crudForm.controls.houseId.errors && isSubmitClicked) || (crudForm.controls.houseId.value === '0' && isSubmitClicked)}" formControlName="houseId">
+                      <option [value] = "0" >{{'label.chooseone' | translate}}</option>
+                      <ng-container *ngFor="let rel of refData.HOUSE">
+                        <option [value] = "rel.value" >{{rel.name}}</option>
+                      </ng-container>
+                    </select>
+                  </div>
+                </div>
+                <label class="error text-danger" *ngIf="(crudForm.controls.houseId.errors && isSubmitClicked) || (crudForm.controls.houseId.value === '0' && isSubmitClicked)">{{'error.house.mandatory' | translate}}</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="paidDate">{{'label.paiddate' | translate}} :</label>
+                <div class="input-group" id="cal">
+                  <input class="form-control" placeholder="yyyy-mm-dd" name="dp1" formControlName="paidDate" ngbDatepicker #d1="ngbDatepicker" [ngClass] = "{'input-error-box': (crudForm.controls.paidDate.errors && isSubmitClicked)}">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary ti-calendar" (click)="d1.toggle()" type="button" [ngClass] = "{'input-error-box': (crudForm.controls.paidDate.errors && isSubmitClicked)}"></button>
+                  </div>
+                </div>
+                <label class="error text-danger" *ngIf="(crudForm.controls.paidDate.errors && isSubmitClicked)">{{'error.paiddate.mandatory' | translate}}</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="payMode">{{'label.paymode' | translate}} :</label>
+                <div class="relative">
+                  <div class="select-custom">
+                    <select class="form-control form-control-lg w-100" [ngClass] = "{'input-error-box': (crudForm.controls.payMode.errors && isSubmitClicked) || (crudForm.controls.payMode.value === '0' && isSubmitClicked)}" formControlName="payMode">
+                      <option [value] = "0" >{{'label.chooseone' | translate}}</option>
+                      <ng-container *ngFor="let rel of refData.PAYMODE">
+                        <option [value] = "rel.value" >{{rel.name}}</option>
+                      </ng-container>
+                    </select>
+                  </div>
+                </div>
+                <label class="error text-danger" *ngIf="(crudForm.controls.payMode.errors && isSubmitClicked) || (crudForm.controls.payMode.value === '0' && isSubmitClicked)">{{'error.paymode.mandatory' | translate}}</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="pmNumber">{{'label.pmnumber' | translate}} :</label>
+                <input [ngClass] = "{'input-error-box': (crudForm.controls.pmNumber.errors && isSubmitClicked)}" id="pmNumber" class="form-control" formControlName="pmNumber" type="text" aria-invalid="true">
+                <label class="error text-danger" *ngIf="(crudForm.controls.pmNumber.errors && isSubmitClicked)">{{'error.pmnumber.mandatory' | translate}}</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="purpose">{{'label.purpose' | translate}} :</label>
+                <input [ngClass] = "{'input-error-box': (crudForm.controls.purpose.errors && isSubmitClicked)}" id="purpose" class="form-control" formControlName="purpose" type="text" aria-invalid="true">
+                <label class="error text-danger" *ngIf="(crudForm.controls.purpose.errors && isSubmitClicked)">{{'error.purpose.mandatory' | translate}}</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="receipt">{{'label.receipt' | translate}} :</label>
+                <input [ngClass] = "{'input-error-box': (crudForm.controls.receipt.errors && isSubmitClicked)}" id="receipt" class="form-control" formControlName="receipt" type="text" aria-invalid="true">
+                <label class="error text-danger" *ngIf="(crudForm.controls.receipt.errors && isSubmitClicked)">{{'error.receipt.mandatory' | translate}}</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="amount">{{'label.amount' | translate}} :</label>
+                <input [ngClass] = "{'input-error-box': (crudForm.controls.amount.errors && isSubmitClicked)}" id="amount" class="form-control" formControlName="amount" type="text" aria-invalid="true">
+                <label class="error text-danger" *ngIf="(crudForm.controls.amount.errors && isSubmitClicked)">{{'error.amount.mandatory' | translate}}</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="poc">{{'label.poc' | translate}} :</label>
+                <input [ngClass] = "{'input-error-box': (crudForm.controls.poc.errors && isSubmitClicked)}" id="poc" class="form-control" formControlName="poc" type="text" aria-invalid="true">
+                <label class="error text-danger" *ngIf="(crudForm.controls.poc.errors && isSubmitClicked)">{{'error.poc.mandatory' | translate}}</label>
+              </div>
+            </div>
+            
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="comment">{{'label.comment' | translate}} :</label>
+                <textarea class="form-control"  rows="15" [ngClass] = "{'input-error-box': (crudForm.controls.comment.errors && isSubmitClicked)}" id="comment" class="form-control" formControlName="comment" aria-invalid="true"></textarea>
+                <label class="error text-danger" *ngIf="(crudForm.controls.comment.errors && isSubmitClicked)">{{'error.comment.mandatory' | translate}}</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <button type="button" class="btn btn-outline-secondary btn-fw" (click)="clearForm()"><i class="ti-cut font-weight-bold"></i> {{'label.clear' | translate}}</button>
+              <button type="button"  class="btn btn-primary" (click)="onSubmitClicked()" ><i class="ti-save font-weight-bold"></i> {{'label.save' | translate}}</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="spinner" *ngIf="showSpinner">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+

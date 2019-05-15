@@ -87,12 +87,12 @@ export class TransactionCrudComponent implements OnInit {
       this.result = resp;
       const tranxDate = this.utilService.dateFormat(new Date(this.result.tranxDate));
       this.crudForm.patchValue({
-        tranxDate: tranxDate,
-        amount: this.result.amount,
-        purpose: this.result.purpose,
+        tranxDate:      tranxDate,
+        amount:         this.result.amount,
+        purpose:        this.result.purpose,
         serviceStation: this.result.serviceStation,
-        item: this.result.item,
-        comment: this.result.comment
+        item:           this.result.item,
+        comment:        this.result.comment
       })
       this.showSpinner = false
     }, (err: any)=> {
@@ -138,7 +138,7 @@ export class TransactionCrudComponent implements OnInit {
   }
   addTransaction() {
     const payload = this.crudForm.getRawValue();
-    payload['vehicleId']       = this.vehicleId ? this.vehicleId : '';
+    payload['vehicleId']  = this.vehicleId ? this.vehicleId : '';
     payload['tranxDate']  = this.dateService.formatDateTime(this.crudForm.get('tranxDate').value,2);
     this.showSpinner  = true;
     this.garageService.addTransaction(payload)
@@ -153,7 +153,7 @@ export class TransactionCrudComponent implements OnInit {
   }
   updateTransaction() {
     const payload = this.crudForm.getRawValue();
-    payload['vehicleId']       = this.vehicleId ? this.vehicleId : '';
+    payload['vehicleId']  = this.vehicleId ? this.vehicleId : '';
     payload['tranxDate']  = this.dateService.formatDateTime(this.crudForm.get('tranxDate').value,2);
     this.showSpinner  = true;
     this.garageService.updateTransaction(payload)

@@ -11,6 +11,8 @@ import { SharedModule } from '../shared/shared.module';
 import { HouseCrudComponent } from './house-crud/house-crud.component';
 import { HouseComponent } from './house.component';
 import { HouseBasicDetailsComponent } from './_component/house-basic-details.component';
+import { HousePurchaseDetailsComponent } from './_component/house-purchase-details.component';
+import { HousePurchaseCrudComponent } from './house-purchase-crud/house-purchase-crud.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +28,9 @@ import { HouseBasicDetailsComponent } from './_component/house-basic-details.com
     HouseDashboardComponent,
     HouseCrudComponent,
     HouseComponent,
-    HouseBasicDetailsComponent
+    HouseBasicDetailsComponent,
+    HousePurchaseDetailsComponent,
+    HousePurchaseCrudComponent
   ],
   providers: [
     HouseService

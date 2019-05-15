@@ -8,7 +8,6 @@ export class AsqDatePipe implements PipeTransform {
   constructor(@Inject(LOCALE_ID) private _locale: string){}
 
   transform(value: any, args?: any): any {
-    console.log('args', args, value)
     let _datePipe = new DatePipe('en_US');
       if(args === 'datetime'){
         const splitChar = ' ';

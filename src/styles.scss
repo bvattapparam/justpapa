@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 .text-link{
   cursor: pointer;
 }
@@ -162,6 +163,11 @@ height: calc(2.875rem_2px);
 }
 label.error{
   font-size: 0.95rem !important;
+}
+.label-custom{
+  display: block;
+  border-bottom: 1px dashed #666;
+  line-height: 24px;
 }
 .form-group{
   label{

@@ -37,7 +37,7 @@
         <p class="text-warning">{{'label.paid' | translate}}</p>
         <h4 class="mb-0 font-weight-bold">{{(paid | asqCurrency) || "&mdash;"}}</h4>
       </div>
-      <div class="border-right text-right pr-4 mb-3 mb-xl-0">
+      <div class="border-right text-right pr-4 mb-3 mb-xl-0" *ngIf="chitfundData[0].maturedValue">
         <p class="text-success">{{'label.profit' | translate}}</p>
         <h4 class="mb-0 font-weight-bold">{{(profit | asqCurrency) || "&mdash;"}}</h4>
       </div>

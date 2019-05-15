@@ -19,6 +19,7 @@ let httpOptions = {
 export class HouseService {
   house: any;
   houseBasicDetails: any;
+  housePurchaseData: any;
 
   constructor(
     private http: HttpClient, 
@@ -39,6 +40,12 @@ export class HouseService {
   getHouseBasicDetails(){
     return this.houseBasicDetails;
   }
+  setHousePurchaseData(value) {
+    this.housePurchaseData = value;
+  }
+  getHousePurchaseData(){
+    return this.housePurchaseData;
+  }
   
   getHouseDetailsByHouseId(houseId: any) {
     return this.http.get(API_URL + '/house/house-fetch/?action=byHouseId&houseId=' + houseId + '&pagenation=false')
@@ -46,6 +53,60 @@ export class HouseService {
       return resp;
     })
    // .catch(error => this.authapiService.handleError(error));
+  }
+  getHousePaymentByHouseId(houseId: any) {
+    const payload = {};
+    payload['houseId']    = houseId;
+    payload['pagination'] = false;
+    return this.http.post(API_URL + '/house/transaction-fetch/?action=housePaymentByHouseId',payload, httpOptions)
+    .map((resp: any) => {
+      return resp;
+    })
+   // .catch(error => this.authapiService.handleError(error));
+  }
+
+  addHouse(formvalues: any) {
+    formvalues['modifiedBy'] = this.userService.userBasicDetails[0].userName;
+    const payload = formvalues;
+     return this.http.post(API_URL + '/house/house-add/', payload, httpOptions)
+     .map((resp: any) => {
+       return resp;
+     })
+     .catch((error: any) => {
+      this.authapiService.handleError(error, 'secure');
+      return Observable.throw(error);
+    })
+     .finally(()=> this.onEnd());
+  }
+  updateHouse(formvalues: any) {
+    formvalues['modifiedBy'] = this.userService.userBasicDetails[0].userName;
+    const payload = formvalues;
+     return this.http.post(API_URL + '/house/house-update/', payload, httpOptions)
+     .map((resp: any) => {
+       return resp;
+     })
+     .catch((error: any) => {
+      this.authapiService.handleError(error, 'secure');
+      return Observable.throw(error);
+    })
+     .finally(()=> this.onEnd());
+  }
+
+  updateHousePurchase(formvalues: any){
+    formvalues['modifiedBy'] = this.userService.userBasicDetails[0].userName;
+    const payload = formvalues;
+     return this.http.post(API_URL + '/house/transaction-update/?action=housePayment', payload, httpOptions)
+     .map((resp: any) => {
+       return resp;
+     })
+     .catch((error: any) => {
+      this.authapiService.handleError(error, 'secure');
+      return Observable.throw(error);
+    })
+     .finally(()=> this.onEnd());
+  }
+  onEnd(): void {
+    throw new Error("Method not implemented.");
   }
 
 }

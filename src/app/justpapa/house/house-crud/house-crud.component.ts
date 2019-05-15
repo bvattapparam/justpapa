@@ -23,7 +23,7 @@ import { DatePipe } from '@angular/common';
 export class HouseCrudComponent implements OnInit {
 
   refData: any;
-  showModuleSpinner = false;
+  showSpinner = false;
   showMessageContainer = false;
   crudForm : FormGroup;
   isSubmitClicked = false;
@@ -31,7 +31,7 @@ export class HouseCrudComponent implements OnInit {
   messageBox: any;
   houseId: any;
   result: any;
-  financeData: any = 'GENSTATUS14';
+  financeData: any = 'GENOPT2';
 
   constructor(
     private authApiService: AuthapiService,
@@ -51,14 +51,15 @@ export class HouseCrudComponent implements OnInit {
     this.refData = publicParamList['references'];
     this.referenceForm();
     if (this.flagType === 'edit') {
-      this.getVehicleByvehicleId();
-      this.financeLogic(this.financeData);
+      this.updateForm();
     }
     if (this.flagType === 'add') {
       this.crudForm.patchValue({
-        finance: this.financeData
+        finance: this.financeData,
+        houseId: this.houseId
       })
     }
+    this.statusChange('');
   }
   referenceForm(){
     this.crudForm = this.fb.group({
@@ -68,8 +69,8 @@ export class HouseCrudComponent implements OnInit {
       bhk:            ['', Validators.required],
       location:       ['', Validators.required],
       finance:        ['', Validators.required],
-      financeAmount:  ['', Validators.required],
-      bank:           ['', Validators.required],
+      financeAmount:  [''],
+      bank:           [''],
       rm:             ['', Validators.required],
       bookedDate:     ['', Validators.required],
       handoverDate:   ['', Validators.required],
@@ -81,29 +82,95 @@ export class HouseCrudComponent implements OnInit {
   }
   resetForm(){
     this.isSubmitClicked = false;
-    this.showModuleSpinner = false;
+    this.showSpinner = false;
     this.crudForm.reset();
   }
   clearForm(){
     this.resetForm();
   }
-  chnageFinance(value: any) {
-    this.financeData = value;
-    this.financeLogic(this.financeData);
-  }
-  financeLogic(financedata: any){
-    this.financeData = financedata;
-    this.crudForm.get('finance').valueChanges.subscribe(
-      (mode: string) =>{
-        if(mode === "GENOPT1") {
-          this.crudForm.get('financeAmount').setValidators([Validators.required]);
-          this.crudForm.get('financeAmount').updateValueAndValidity();
-        } else {
-          this.crudForm.get('financeAmount').clearValidators();
-          this.crudForm.get('financeAmount').updateValueAndValidity();
-        }
-      }
-    )
+
+  updateForm(){
+    this.result = this.houseService.getHouseBasicDetails();
+    const bookedDate = this.utilService.dateFormat(new Date(this.result[0]['bookedDate']));
+    const handoverDate = this.utilService.dateFormat(new Date(this.result[0]['handoverDate']));
+    this.crudForm.patchValue({
+      houseId:            this.result[0]['houseId'],
+      builder:            this.result[0]['builder'],
+      type:               this.result[0]['type'],
+      bhk:                this.result[0]['bhk'],
+      location:           this.result[0]['location'],
+      finance:            this.result[0]['finance'],
+      financeAmount:      this.result[0]['financeAmount'],
+      bank:               this.result[0]['bank'],
+      rm:                 this.result[0]['rm'],
+      bookedDate:         bookedDate,
+      handoverDate:       handoverDate,
+      comment:            this.result[0]['comment'],
+    })
   }
 
+  statusChange(value: any) {
+    const financeAmount = this.crudForm.get('financeAmount');
+    const bank = this.crudForm.get('bank');
+    this.crudForm.get('finance').valueChanges.subscribe(value => {
+      if (value === 'GENOPT1'){
+        financeAmount.setValidators([Validators.required]);
+        financeAmount.updateValueAndValidity();
+        bank.setValidators([Validators.required]);
+        bank.updateValueAndValidity();
+      } else {
+        financeAmount.setValidators(null);
+        financeAmount.updateValueAndValidity();
+        bank.setValidators(null);
+        bank.updateValueAndValidity();
+      }
+    });
+  }
+
+  onSubmitClicked(){
+    this.messageBox = [];
+    this.userActionPerformed();
+    if (!this.crudForm.valid) {
+      return;
+    }
+    if (this.crudForm.get('houseId').value === '0') {
+      return;
+    }
+    if (this.flagType === "edit") {
+      this.updateHouse();
+    } else if (this.flagType === "add") {
+      this.addHouse();
+    }
+  }
+  addHouse() {
+    const payload = this.crudForm.getRawValue();
+    payload['houseId']        = this.houseId ? this.houseId : '';
+    payload['bookedDate']     = this.dateService.formatDateTime(this.crudForm.get('bookedDate').value,2);
+    payload['handoverDate']   = this.dateService.formatDateTime(this.crudForm.get('handoverDate').value,2);
+    this.showSpinner  = true;
+    this.houseService.addHouse(payload)
+    .subscribe((resp: any) => {
+      this.showSpinner = false;
+      this.messageBox = this.utilService.showMessageBox(resp);
+      this.clearForm();
+    }, (err)=> {
+      this.authApiService.handleError(err, 'secure');
+      this.showSpinner = false;
+    });
+  }
+  updateHouse() {
+    const payload = this.crudForm.getRawValue();
+    payload['houseId']        = this.houseId ? this.houseId : '';
+    payload['bookedDate']     = this.dateService.formatDateTime(this.crudForm.get('bookedDate').value,2);
+    payload['handoverDate']   = this.dateService.formatDateTime(this.crudForm.get('handoverDate').value,2);
+    this.showSpinner  = true;
+    this.houseService.updateHouse(payload)
+    .subscribe((resp: any) => {
+      this.showSpinner = false;
+      this.messageBox = this.utilService.showMessageBox(resp);
+    }, (err)=> {
+      this.authApiService.handleError(err, 'secure');
+      this.showSpinner = false;
+    });
+  }
 }

@@ -20,7 +20,7 @@ export class TransactionComponent implements OnInit {
   _manipulatedReference: any;
   flagType: any;
   page: any = 1;
-  pageSize: any = 5;
+  pageSize: any = 50;
   collectionSize: any;
   previousPage: any;
 

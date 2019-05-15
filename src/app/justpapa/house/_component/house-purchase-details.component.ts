@@ -62,5 +62,9 @@ export class HousePurchaseDetailsComponent implements OnInit {
     modalRef.componentInstance.content = record;
   }
 
+  editData(id: any) {
+    this._router.navigate(['/secure/house/housepurchasecrud/edit/' + id]);
+  }
+
 
 }

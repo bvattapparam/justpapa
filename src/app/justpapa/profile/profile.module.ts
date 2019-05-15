@@ -30,10 +30,4 @@ import { ResetpasswordComponent } from './_component/resetpassword/resetpassword
   ]
 })
 
-@NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
-})
 export class ProfileModule { }

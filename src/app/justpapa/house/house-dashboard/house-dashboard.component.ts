@@ -28,6 +28,7 @@ export class HouseDashboardComponent implements OnInit {
   ];
   result: any;
   flagType: any;
+  housePaymentList: any;
 
   constructor(
     private houseService: HouseService,
@@ -59,13 +60,17 @@ export class HouseDashboardComponent implements OnInit {
       house: ['']
     });
   }
+  editData() {
+    this._router.navigate(['/secure/house/housecrud/edit/' + this.house], this.result);
+  }
   onHouseChange(targetValue: any) {
+    this.house = targetValue;
     if (targetValue !== '0') {
       this.houseService.setHouse(targetValue)
-      this.house = targetValue;
       const payload = {};
       payload['house'] = targetValue;
       this.getHouseDetailsByHouseId(targetValue);
+      //this.getHousePaymentByHouseId(targetValue);
       //this.houseObj = Object.assign({}, payload);
       this.searchOn = true;
     } else {
@@ -87,4 +92,5 @@ export class HouseDashboardComponent implements OnInit {
     }); 
   }
 
+  
 }

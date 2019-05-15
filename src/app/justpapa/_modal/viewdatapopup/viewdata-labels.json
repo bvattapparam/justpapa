@@ -73,7 +73,21 @@
     "vht_createdDate": { "labelKey": "label.createddate", "field": "createdDate", "valueType": "audit", "refValue": "", "space": 1},
     "vht_modifiedBy": { "labelKey": "label.modifiedby", "field": "modifiedBy", "valueType": "audit", "refValue": "", "space": 1},
     "vht_modifiedDate": { "labelKey": "label.modifieddate", "field": "modifiedDate", "valueType": "audit", "refValue": "", "space": 1},
-    "vht_comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2}
+    "vht_comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2},
+
+    "hp_houseId": { "labelKey": "label.house", "field": "houseId", "valueType": "ref", "refValue": "HOUSE", "space": 1},
+    "hp_paidDate": { "labelKey": "label.paiddate", "field": "paidDate", "valueType": "date", "refValue": "", "space": 1},
+    "hp_payMode": { "labelKey": "label.paymode", "field": "payMode", "valueType": "ref", "refValue": "PAYMODE", "space": 1},
+    "hp_pmNumber": { "labelKey": "label.pmnumber", "field": "pmNumber", "valueType": "string", "refValue": "", "space": 1},
+    "hp_purpose": { "labelKey": "label.purpose", "field": "purpose", "valueType": "string", "refValue": "", "space": 1},
+    "hp_amount": { "labelKey": "label.amount", "field": "amount", "valueType": "currency", "refValue": "", "space": 1},
+    "hp_receipt": { "labelKey": "label.receipt", "field": "receipt", "valueType": "string", "refValue": "", "space": 1},
+    "hp_poc": { "labelKey": "label.poc", "field": "poc", "valueType": "string", "refValue": "", "space": 1},
+    "hp_createdBy": { "labelKey": "label.createdby", "field": "createdBy", "valueType": "audit", "refValue": "", "space": 1},
+    "hp_createdDate": { "labelKey": "label.createddate", "field": "createdDate", "valueType": "audit", "refValue": "", "space": 1},
+    "hp_modifiedBy": { "labelKey": "label.modifiedby", "field": "modifiedBy", "valueType": "audit", "refValue": "", "space": 1},
+    "hp_modifiedDate": { "labelKey": "label.modifieddate", "field": "modifiedDate", "valueType": "audit", "refValue": "", "space": 1},
+    "hp_comment": { "labelKey": "label.comment", "field": "comment", "valueType": "string", "refValue": "", "space": 2}
 },
 
 "sectionConfig": {
@@ -168,6 +182,23 @@
       "vht_modifiedBy",
       "vht_modifiedDate",
       "vht_comment"
+    ]
+],
+"HOUSEPURCHASE_CONF": [
+    [
+      "hp_houseId",
+      "hp_paidDate",
+      "hp_payMode",
+      "hp_pmNumber",
+      "hp_purpose",
+      "hp_amount",
+      "hp_poc",
+      "hp_receipt",
+      "hp_createdDate",
+      "hp_createdBy",
+      "hp_modifiedDate",
+      "hp_modifiedBy",
+      "hp_comment"
     ]
 ]
 

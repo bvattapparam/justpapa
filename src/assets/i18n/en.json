@@ -78,6 +78,7 @@
     "label.profit": "Profit",
     "label.chitfund.matured.message": "Chit fund matured. Please contact administrator to open a new one. You can not modify the current data.",
     "label.common.message.one": "To see the list of Chit funds, please choose a person from the drop down box located top right side. <p> Please contact system administrator if you face any difficulties to fetch the data",
+    "label.common.message.two": "To see the list of House, please choose a house from the drop down box located top right side. <p> Please contact system administrator if you face any difficulties to fetch the data",
     "label.fromperson": "From Person",
     "label.basketowner": "Basket Owner",
     "label.basket": "Basket",
@@ -115,6 +116,14 @@
     "label.bank": "Bank",
     "label.handoverdate": "Handoverdate",
     "label.nohousecreated": "There is no house created. Please click here to create one.",
+    "label.houseedit": "House Edit",
+    "label.houseadd": "House Add",
+    "label.edit": "Edit",
+    "label.purchase.payment": "Purchase Payment Details",
+    "label.paiddate": "Paid Date",
+    "label.housepaymentedit": "House payment edit",
+    "label.housepaymentadd": "House payment add",
+    "label.pmnumber": "Payment Mode Number",
 
     "menu.dashboard": "Dashboard",
     "menu.school": "School",
@@ -148,6 +157,7 @@
     "menu.fundbasket": "Fund Basket",
     "menu.garage": "Garage",
     "menu.apartment": "Apartment",
+    "menu.house": "House",
 
 
 
@@ -171,6 +181,11 @@
     "SUCCESS_LANGUAGE_UPDATED": "Language updated successfully.",
     "SUCCESS_VHTRANSACTION_UPDATED": "Vehicle Trasaction updated successfully.",
     "SUCCESS_VHTRANSACTION_ADDED": "Vehicle Trasaction added successfully.",
+    "SUCCESS_HOUSE_ADDED": "House added successfully.",
+    "SUCCESS_HOUSE_UPDATED": "House updated successfully.",
+    "SUCCESS_HOUSE_PAYMENT_UPDATED": "House Payment details updated successfully.",
+
+    "HOUSE_ALREADY_AVAILABLE": "Data shows this house is already available. Please validate the house details before create. <p>Please contact Administrator if you need any assistance.</p>",
     
     "E_UNKNOWN" : "Unknown issue occured. Please retry or contact the system administrator for assistance.", 
 
@@ -214,6 +229,13 @@
     "error.servicestation.mandatory": "Service Station should not be empty",
     "error.item.mandatory": "Item should not be empty",
     "error.tranxdate.mandatory": "Transaction Date should not be empty",
+    "error.house.mandatory": "House should not be empty",
+    "error.builder.mandatory": "Builder should not be empty",
+    "error.bank.mandatory": "Bank should not be empty",
+    "error.bhk.mandatory": "Bed room type should not be empty",
+    "error.handoverdate.mandatory": "Hand over date should not be empty",
+    "error.location.mandatory": "Location should not be emmty",
+    
 
     "message.serviceerror": "Service is temporarly unavailable. Please contact administrator for more information. If you face the same issue in future, please ensure its reported to the respective person on time.",
     "message.nodatafound": "There is no data available for now. Please check later or contact administrator.",

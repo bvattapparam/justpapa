@@ -21,20 +21,20 @@
             <thead>
               <tr class="text-uppercase">
                 <th>{{'label.sno' | translate}}</th>
-                <th>{{'label.vehicle' | translate}}</th>
+                <th>{{'label.item' | translate}}</th>
                 <th class="text-right">{{'label.amount' | translate}}</th>
                 <th>{{'label.purpose' | translate}}</th>
-                <th>{{'label.transactiondate' | translate}}</th>
+                <!-- <th>{{'label.transactiondate' | translate}}</th> -->
                 <th class="text-right">{{'label.action' | translate}}</th>
               </tr>
             </thead>
             <tbody>
               <tr class="text-capialize" *ngFor="let record of result; let sno = index">
                 <td># {{sno + 1}}</td>
-                <td>{{(_manipulatedReference.VH[record.vehicleId]) || "&mdash;"}}</td>
+                <td>{{(record.item) || "&mdash;"}}</td>
                 <td class="text-right">{{(record.amount | asqCurrency) || "&mdash;"}}</td>
                 <td>{{(_manipulatedReference.VHPUR[record.purpose]) || "&mdash;"}}</td>
-                <td>{{(record.tranxDate | asqDate) || "&mdash;"}}</td>
+                <!-- <td>{{(record.tranxDate | asqDate) || "&mdash;"}}</td> -->
                 <td class="text-right">
                   <i *ngIf="!hasMatured" class="ti-pencil-alt font-weight-bold text-warning text-link" (click)="editData(record.id);"></i>
                   &nbsp;<i class="icon-eye font-weight-bold text-warning text-link" (click)="viewData(record);"></i>
