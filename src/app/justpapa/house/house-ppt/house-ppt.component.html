@@ -1,0 +1,28 @@
+<div class="col-12">
+  <div class="row mb-3 m-2" *ngIf="result">
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.house' | translate}}</label>
+      <div>{{(_manipulatedReference.HOUSE[result?.houseId]) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.bill' | translate}}</label>
+      <div>{{(result?.bill) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.paiddate' | translate}}</label>
+      <div>{{(result?.paidDate | asqDate) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.amount' | translate}}</label>
+      <div>{{(result?.amount | asqCurrency) || "&mdash;"}}</div>
+    </div>
+    <div class="col-4 mt-4">
+      <label class="text-info label-custom">{{'label.paymode' | translate}}</label>
+      <div>{{(result?.payMode) || "&mdash;"}}</div>
+    </div>
+    <div class="col-12 mt-4">
+      <label class="text-info label-custom">{{'label.comment' | translate}}</label>
+      <div><span [innerHTML]="result?.comment | formatString"></span></div>
+    </div>
+  </div>
+</div>

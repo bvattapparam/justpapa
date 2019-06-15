@@ -13,6 +13,8 @@ import { HouseComponent } from './house.component';
 import { HouseBasicDetailsComponent } from './_component/house-basic-details.component';
 import { HousePurchaseDetailsComponent } from './_component/house-purchase-details.component';
 import { HousePurchaseCrudComponent } from './house-purchase-crud/house-purchase-crud.component';
+import { HousePptComponent } from './house-ppt/house-ppt.component';
+import { HousePptCrudComponent } from './house-ppt-crud/house-ppt-crud.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -30,7 +32,9 @@ import { HousePurchaseCrudComponent } from './house-purchase-crud/house-purchase
     HouseComponent,
     HouseBasicDetailsComponent,
     HousePurchaseDetailsComponent,
-    HousePurchaseCrudComponent
+    HousePurchaseCrudComponent,
+    HousePptComponent,
+    HousePptCrudComponent
   ],
   providers: [
     HouseService

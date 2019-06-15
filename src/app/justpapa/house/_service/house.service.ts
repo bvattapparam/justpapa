@@ -105,6 +105,23 @@ export class HouseService {
     })
      .finally(()=> this.onEnd());
   }
+  getPPTByHouseId(houseId: any) {
+    const payload = {};
+    payload['houseId']    = houseId;
+    payload['pagination'] = false;
+    return this.http.post(API_URL + '/house/house-ppt-fetch/',payload, httpOptions)
+    .map((resp: any) => {
+      return resp;
+    })
+   // .catch(error => this.authapiService.handleError(error));
+  }
+
+
+
+
+
+
+
   onEnd(): void {
     throw new Error("Method not implemented.");
   }
