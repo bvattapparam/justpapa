@@ -26,7 +26,7 @@
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^2.0.1",
     "ace-builds": "^1.2.9",
-    "bootstrap": "4.1.1",
+    "bootstrap": "4.3.1",
     "bootstrap-datepicker": "1.7.1",
     "bootstrap-maxlength": "1.6.0",
     "c3": "0.4.18",
